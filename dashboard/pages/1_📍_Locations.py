@@ -3,7 +3,7 @@
 import streamlit as st
 import plotly.express as px
 
-from components.db import run_query
+from components.db import run_query, safe_query
 from components.styles import inject_styles
 
 inject_styles()
@@ -17,7 +17,7 @@ st.markdown(
 )
 
 with st.spinner("Loading map data..."):
-    df = run_query("SELECT * FROM v_accuracy_by_location")
+    df = safe_query("SELECT * FROM v_accuracy_by_location")
 
 if not df.empty:
     df["label"] = df["city"] + ", " + df["country"]

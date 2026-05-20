@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 
-from components.db import run_query
+from components.db import run_query, safe_query
 from components.styles import inject_styles
 
 inject_styles()
@@ -22,7 +22,7 @@ st.markdown(
 
 # --- Load data ---
 with st.spinner("Loading evaluation data..."):
-    df = run_query("""
+    df = safe_query("""
         SELECT model_prob, model_correct
         FROM v_fight_detail
         WHERE actual_winner IS NOT NULL

@@ -3,7 +3,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 
-from components.db import run_query
+from components.db import run_query, safe_query
 from components.styles import inject_styles
 
 inject_styles()
@@ -18,7 +18,7 @@ st.markdown(
 
 # Load all fights
 with st.spinner("Loading fights..."):
-    df = run_query("""
+    df = safe_query("""
         SELECT event_name, event_date, fighter_a, fighter_b, model_pick, model_prob,
                opening_odds, edge, actual_winner, model_correct, combined_correct,
                finish_method, source, override_pick

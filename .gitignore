@@ -7,3 +7,4 @@ dashboard/.streamlit/secrets.toml
 *.egg-info/
 dist/
 build/
+data/

@@ -1,6 +1,6 @@
 -- CAGEBOT Analytical Database Schema
 -- 6 tables, 3NF normalized
--- Generated from spec: docs/superpowers/specs/2026-05-20-postgresql-analytical-database-design.md
+
 
 -- ============================================================
 -- Table: events
@@ -101,7 +101,6 @@ CREATE INDEX idx_fights_event_id ON fights(event_id);
 CREATE INDEX idx_fights_model_pick_id ON fights(model_pick_id);
 CREATE INDEX idx_fights_actual_winner_id ON fights(actual_winner_id);
 CREATE INDEX idx_odds_fight_id ON odds_snapshots(fight_id);
-CREATE INDEX idx_odds_fight_snapshot ON odds_snapshots(fight_id, snapshot_type, bookmaker);
 CREATE INDEX idx_elo_fighter_id ON fighter_elo_history(fighter_id);
 CREATE INDEX idx_elo_date ON fighter_elo_history(event_date);
 CREATE INDEX idx_events_date ON events(date);

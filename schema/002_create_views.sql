@@ -1,6 +1,6 @@
 -- CAGEBOT Analytical Views
 -- 4 views computing accuracy metrics on the fly
--- Generated from spec: docs/superpowers/specs/2026-05-20-postgresql-analytical-database-design.md
+
 
 -- ============================================================
 -- View: v_event_accuracy

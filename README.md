@@ -1,5 +1,11 @@
 # CAGEBOT — Autonomous UFC Fight Prediction Engine
 
+[![CI](https://github.com/jvnteran/cagebot/actions/workflows/ci.yml/badge.svg)](https://github.com/jvnteran/cagebot/actions/workflows/ci.yml)
+[![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791.svg)](https://www.postgresql.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Live-dc2626.svg)](https://cagebot.streamlit.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 An end-to-end machine learning system that predicts UFC fight outcomes, running autonomously in production since December 2025.
 
 **68% combined accuracy** across 225 decided fights (18 events) — XGBoost model with human-in-the-loop override layer.
@@ -162,6 +168,36 @@ The dashboard includes a full [Model Evaluation page](https://cagebot.streamlit.
 
 ---
 
+## Pipelines
+
+The system runs two automated pipelines on a VPS cron schedule:
+
+**Pre-Event (Monday)** — 10 steps:
+1. Rebuild fighter state (ELO + recency from fightlogs)
+2. Fetch multibook odds from TheOddsAPI (5 sportsbooks)
+3. Run XGBoost V2.4 predictions (aborts if no odds)
+4. Scrape ESPN fighter profiles for context
+5. Run intuition agent (Claude-powered scenario analysis)
+6. Run risk assessment on each prediction
+7. Append assessment to master records
+8. Ingest picks to master_picks.csv (atomic, idempotent)
+9. Ingest to Excel workbook
+10. Post picks card to Discord
+
+**Post-Event (Sunday)** — 8 steps:
+1. Fetch + cache UFCStats HTML
+2. Parse results with completeness gate (retries if incomplete)
+3. Update master_picks.csv with actual outcomes (atomic write)
+4. Generate missed picks analysis
+5. Rebuild fighter state with new ELO ratings
+6. Run post-event agent (Claude-powered miss analysis)
+7. Update master_events.csv (accuracy metrics)
+8. Post results card to Discord
+
+See [`pipelines/`](pipelines/) for the sanitized pipeline code.
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
@@ -210,23 +246,31 @@ streamlit run app.py
 
 ```
 cagebot/
+├── .github/workflows/ci.yml        # GitHub Actions: lint + test on push
+├── Dockerfile                       # Container deployment for dashboard
+├── Makefile                         # make test, make lint, make run
+├── LICENSE                          # MIT
 ├── schema/
-│   ├── 001_create_tables.sql       # 6 tables with constraints + indexes
-│   └── 002_create_views.sql        # 4 analytical views
+│   ├── 001_create_tables.sql        # 6 tables with constraints + indexes
+│   └── 002_create_views.sql         # 4 analytical views
 ├── etl/
-│   ├── load_all.py                 # Orchestrator (FK-order loading)
-│   ├── load_fighters.py            # Name normalization + physical attributes
-│   ├── load_events.py              # Venue backfill from lookup CSV
-│   ├── load_fights.py              # MOV enrichment + fight name matching
-│   ├── load_odds.py                # Column-to-row pivot (opening/closing)
-│   ├── load_overrides.py           # Override filter + name resolution
-│   └── load_elo_history.py         # 8,498 career ELO rows
+│   ├── load_all.py                  # Orchestrator (FK-order loading)
+│   ├── load_fighters.py             # Name normalization + physical attributes
+│   ├── load_events.py               # Venue backfill from lookup CSV
+│   ├── load_fights.py               # MOV enrichment + fight name matching
+│   ├── load_odds.py                 # Column-to-row pivot (opening/closing)
+│   ├── load_overrides.py            # Override filter + name resolution
+│   └── load_elo_history.py          # 8,498 career ELO rows
+├── pipelines/
+│   ├── pre_event.py                 # 10-step pre-event pipeline
+│   └── post_event.py                # 8-step post-event pipeline
 ├── dashboard/
-│   ├── app.py                      # Overview page
-│   ├── pages/                      # 5 additional pages
-│   └── components/                 # DB connection, styles, query definitions
-├── docker-compose.yml              # PostgreSQL + pgAdmin
-└── .env.example                    # Required environment variables
+│   ├── app.py                       # Overview page
+│   ├── pages/                       # 5 additional pages
+│   └── components/                  # DB connection, styles, query definitions
+├── tests/unit/                      # 16 ETL unit tests
+├── docker-compose.yml               # PostgreSQL + pgAdmin
+└── .env.example                     # Required environment variables
 ```
 
 ---

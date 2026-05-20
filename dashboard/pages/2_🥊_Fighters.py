@@ -3,7 +3,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 
-from components.db import run_query
+from components.db import run_query, safe_query
 from components.styles import inject_styles
 
 inject_styles()
@@ -18,7 +18,7 @@ st.markdown(
 
 # Fighter dropdown
 with st.spinner("Loading fighters..."):
-    fighters_df = run_query("""
+    fighters_df = safe_query("""
         SELECT name, current_elo, elo_fights, stance, height_in, reach_in, last_fight_date
         FROM v_fighter_current
         ORDER BY current_elo DESC
@@ -47,7 +47,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # ELO trajectory chart
 with st.spinner("Loading ELO history..."):
-    elo_df = run_query("""
+    elo_df = safe_query("""
         SELECT h.event_date, h.event_name, h.elo_before, h.elo_after, h.elo_delta,
                h.opponent_name, h.result, h.elo_fights
         FROM fighter_elo_history h

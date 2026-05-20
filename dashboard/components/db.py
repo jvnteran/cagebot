@@ -26,3 +26,16 @@ def run_query(sql: str, params: tuple = None) -> pd.DataFrame:
             pass
         st.session_state.db_conn = _connect()
         return pd.read_sql_query(sql, st.session_state.db_conn, params=params)
+
+
+def safe_query(sql: str, params: tuple = None) -> pd.DataFrame | None:
+    """Run a query with error handling. Returns None and shows error on failure."""
+    try:
+        return run_query(sql, params)
+    except Exception as e:
+        st.error(
+            "Unable to connect to the database. The analytics database may be "
+            "waking up from sleep — please refresh the page in a few seconds."
+        )
+        st.caption(f"Technical detail: {type(e).__name__}")
+        return None

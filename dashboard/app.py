@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
 
-from components.db import run_query
+from components.db import run_query, safe_query
 from components.styles import inject_styles
 
 st.set_page_config(
@@ -39,7 +39,7 @@ st.markdown(
     "<p style='color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;'>System Architecture</p>"
     "<p style='color:#ccc;font-size:13px;margin:0;line-height:1.8;'>"
     "<span style='color:#dc2626;'>Data Ingestion</span> → TheOddsAPI (5 sportsbooks) · UFCStats · ESPN Profiles · ELO System<br>"
-    "<span style='color:#dc2626;'>Prediction</span> → XGBoost V2.4 (154 features) · Method of Victory Model · Narrative Flag System<br>"
+    "<span style='color:#dc2626;'>Prediction</span> → XGBoost V2.4 (154 features) · Method of Victory Model · Risk Assessment Layer<br>"
     "<span style='color:#dc2626;'>Automation</span> → Phase-aware scheduler · 6 agents on VPS cron · Discord notifications<br>"
     "<span style='color:#dc2626;'>Analytics</span> → PostgreSQL (6 tables, 4 views) · Streamlit dashboard · ETL pipeline"
     "</p></div>",
@@ -48,7 +48,7 @@ st.markdown(
 
 # --- Headline metrics ---
 with st.spinner("Loading metrics..."):
-    metrics = run_query("""
+    metrics = safe_query("""
         SELECT
             COUNT(*) AS decided,
             COUNT(*) FILTER (WHERE f.actual_winner_id = f.model_pick_id) AS model_correct,
@@ -63,6 +63,9 @@ with st.spinner("Loading metrics..."):
         WHERE f.actual_winner_id IS NOT NULL
           AND f.finish_method NOT IN ('NC', 'Cancelled', 'DRAW')
     """)
+
+if metrics is None:
+    st.stop()
 
 m = metrics.iloc[0]
 model_pct = round(100 * m.model_correct / m.decided, 1)
@@ -115,11 +118,14 @@ with col4:
 st.markdown("<br>", unsafe_allow_html=True)
 
 with st.spinner("Loading chart..."):
-    events_df = run_query("""
+    events_df = safe_query("""
         SELECT name, date, decided_fights, model_correct, combined_correct,
                model_accuracy_pct, combined_accuracy_pct
         FROM v_event_accuracy ORDER BY date
     """)
+
+if events_df is None:
+    st.stop()
 
 # Compute cumulative accuracy
 events_df["cum_model_correct"] = events_df["model_correct"].cumsum()
@@ -201,7 +207,7 @@ st.markdown(
 )
 
 with st.spinner("Loading best calls..."):
-    best_calls = run_query("""
+    best_calls = safe_query("""
         SELECT event_name, fighter_a, fighter_b, model_pick, model_prob,
                opening_implied, edge, actual_winner
         FROM v_fight_detail
