@@ -23,6 +23,7 @@ with st.spinner("Loading location data..."):
 
 if df is not None and not df.empty:
     # Render the spinning globe
+    df = df.rename(columns={"latitude": "lat", "longitude": "lon"})
     points = df.to_dict("records")
     render_globe(points, height=520)
 
