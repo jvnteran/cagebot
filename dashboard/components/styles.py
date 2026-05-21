@@ -43,17 +43,9 @@ section[data-testid="stSidebar"] {
     background-color: var(--bg-010) !important;
     border-right: 1px solid var(--line-1) !important;
 }
-section[data-testid="stSidebar"] > div:first-child {
-    display: flex;
-    flex-direction: column;
-}
 section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"] {
     font-family: 'Exo 2', sans-serif;
     font-size: 13px;
-}
-/* Move CAGEBOT brand above nav */
-section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"]:first-of-type {
-    order: -2;
 }
 
 /* === METRIC CARDS === */
@@ -101,14 +93,6 @@ header[data-testid="stHeader"] {
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
-/* Rename "app" nav link to "Overview" */
-section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"]:first-of-type span {
-    font-size: 0 !important;
-}
-section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"]:first-of-type span::after {
-    content: "Overview";
-    font-size: 13px;
-}
 
 /* === CODE BLOCKS === */
 code { font-family: 'JetBrains Mono', monospace !important; }
@@ -116,13 +100,13 @@ code { font-family: 'JetBrains Mono', monospace !important; }
 """
 
 SIDEBAR_BRAND = (
-    "<div style='padding:0 0 8px 0;'>"
+    "<div style='padding:0 0 12px 0;'>"
     "<span style='font-family:Chakra Petch,sans-serif;font-weight:700;font-size:28px;"
     "letter-spacing:0.04em;color:#ffffff;-webkit-text-stroke:0.5px #ffffff;"
     "text-shadow:0 0 18px rgba(255,255,255,0.25);'>CAGEBOT</span>"
     "<br><span style='font-family:JetBrains Mono,monospace;font-size:9px;"
     "color:#c8c8cf;text-transform:uppercase;letter-spacing:0.15em;'>"
-    "prediction engine</span></div>"
+    "ml fight prediction model</span></div>"
 )
 
 SIDEBAR_STATUS = (
