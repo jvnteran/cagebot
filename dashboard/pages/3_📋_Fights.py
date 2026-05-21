@@ -4,9 +4,11 @@ import streamlit as st
 import plotly.graph_objects as go
 
 from components.db import run_query, safe_query
-from components.styles import inject_styles
+from components.styles import inject_styles, eyebrow
 
 inject_styles()
+
+eyebrow("03", "prediction log")
 
 st.markdown("<h2>Fight Predictions</h2>", unsafe_allow_html=True)
 st.markdown(
@@ -55,19 +57,19 @@ with col_chart:
         labels=["Correct", "Wrong"],
         values=[correct, wrong],
         hole=0.65,
-        marker=dict(colors=["#22d3ee", "#dc2626"]),
+        marker=dict(colors=["#f5f5f5", "#dc2626"]),
         textinfo="none",
         hovertemplate="%{label}: %{value} (%{percent})<extra></extra>",
     )])
     fig.update_layout(
-        plot_bgcolor="#0a0a0a", paper_bgcolor="#0a0a0a",
+        plot_bgcolor="#060606", paper_bgcolor="#060606",
         font=dict(color="#f5f5f5", family="Exo 2"),
         showlegend=False,
         margin=dict(l=10, r=10, t=10, b=10),
         height=180,
         annotations=[dict(
             text=f"<b>{pct}%</b>",
-            x=0.5, y=0.5, font_size=28, font_color="#22d3ee",
+            x=0.5, y=0.5, font_size=28, font_color="#f5f5f5",
             font_family="Rajdhani", showarrow=False,
         )],
     )
@@ -77,7 +79,7 @@ with col_stats:
     st.markdown(
         f"<div style='padding:20px 0;'>"
         f"<p style='color:#888;font-size:14px;margin:0;'>Showing <span style='color:#f5f5f5;'>{total}</span> fights</p>"
-        f"<p style='color:#22d3ee;font-size:24px;font-weight:700;font-family:Rajdhani;margin:8px 0;'>"
+        f"<p style='color:#f5f5f5;font-size:24px;font-weight:700;font-family:Rajdhani;margin:8px 0;'>"
         f"{correct} correct · {wrong} wrong</p>"
         f"<p style='color:#555;font-size:12px;margin:0;'>"
         f"{'All events' if selected_event == 'All' else selected_event} · "

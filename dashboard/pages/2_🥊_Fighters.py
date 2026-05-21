@@ -4,9 +4,11 @@ import streamlit as st
 import plotly.graph_objects as go
 
 from components.db import run_query, safe_query
-from components.styles import inject_styles
+from components.styles import inject_styles, eyebrow
 
 inject_styles()
+
+eyebrow("02", "fighter registry")
 
 st.markdown("<h2>Fighter Lookup</h2>", unsafe_allow_html=True)
 st.markdown(
@@ -57,13 +59,13 @@ with st.spinner("Loading ELO history..."):
     """, (selected,))
 
 if not elo_df.empty:
-    colors = ["#22d3ee" if r == "win" else "#dc2626" if r == "loss" else "#888"
+    colors = ["#f5f5f5" if r == "win" else "#dc2626" if r == "loss" else "#888"
               for r in elo_df["result"]]
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=elo_df["event_date"], y=elo_df["elo_after"],
         mode="lines+markers", name="ELO",
-        line=dict(color="#22d3ee", width=2),
+        line=dict(color="#f5f5f5", width=2),
         marker=dict(size=9, color=colors, line=dict(width=1, color="#222")),
         hovertemplate="%{text}<extra></extra>",
         text=[f"{r.event_name}<br>vs {r.opponent_name} ({r.result})<br>ELO: {r.elo_after:.0f} (Δ {r.elo_delta:+.1f})"
@@ -74,10 +76,10 @@ if not elo_df.empty:
                   annotation_font_color="#555")
     fig.update_layout(
         title=f"ELO Trajectory — {selected.title()}",
-        plot_bgcolor="#0a0a0a", paper_bgcolor="#0a0a0a",
+        plot_bgcolor="#060606", paper_bgcolor="#060606",
         font=dict(color="#f5f5f5", family="Exo 2"),
-        xaxis=dict(gridcolor="#1a1a1a", title=""),
-        yaxis=dict(gridcolor="#1a1a1a", title="ELO Rating"),
+        xaxis=dict(gridcolor="#1c1c20", title=""),
+        yaxis=dict(gridcolor="#1c1c20", title="ELO Rating"),
         margin=dict(l=40, r=20, t=60, b=40),
         height=400,
         showlegend=False,

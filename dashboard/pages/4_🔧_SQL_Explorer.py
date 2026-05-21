@@ -3,10 +3,12 @@
 import streamlit as st
 
 from components.db import run_query
-from components.styles import inject_styles
+from components.styles import inject_styles, eyebrow
 from components.queries import QUERIES
 
 inject_styles()
+
+eyebrow("04", "query interface")
 
 st.markdown("<h2>SQL Explorer</h2>", unsafe_allow_html=True)
 st.markdown(
@@ -20,7 +22,7 @@ query_name = st.selectbox("Select query", list(QUERIES.keys()))
 query = QUERIES[query_name]
 
 st.markdown(
-    f"<p style='color:#22d3ee;font-size:13px;font-style:italic;'>{query['description']}</p>",
+    f"<p style='color:#f5f5f5;font-size:13px;font-style:italic;'>{query['description']}</p>",
     unsafe_allow_html=True,
 )
 

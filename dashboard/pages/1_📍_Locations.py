@@ -4,9 +4,11 @@ import streamlit as st
 import plotly.express as px
 
 from components.db import run_query, safe_query
-from components.styles import inject_styles
+from components.styles import inject_styles, eyebrow
 
 inject_styles()
+
+eyebrow("01", "global coverage")
 
 st.markdown("<h2>Accuracy by Location</h2>", unsafe_allow_html=True)
 st.markdown(
@@ -28,7 +30,7 @@ if not df.empty:
         hover_name="label",
         hover_data={"events": True, "decided_fights": True, "accuracy_pct": ":.1f",
                      "latitude": False, "longitude": False},
-        color_continuous_scale=["#dc2626", "#f5f5f5", "#22d3ee"],
+        color_continuous_scale=["#dc2626", "#f5f5f5", "#f5f5f5"],
         range_color=[40, 90],
         size_max=25,
         zoom=1,
@@ -48,7 +50,7 @@ if not df.empty:
     worst = df.loc[df["accuracy_pct"].idxmin()]
     st.markdown(
         f"<p style='color:#888;font-size:13px;'>"
-        f"Best: <span style='color:#22d3ee;'>{best.city} ({best.accuracy_pct}%)</span> "
+        f"Best: <span style='color:#f5f5f5;'>{best.city} ({best.accuracy_pct}%)</span> "
         f"across {int(best.events)} event(s) · "
         f"Worst: <span style='color:#dc2626;'>{worst.city} ({worst.accuracy_pct}%)</span> "
         f"across {int(worst.events)} event(s)</p>",

@@ -6,9 +6,11 @@ import pandas as pd
 import numpy as np
 
 from components.db import run_query, safe_query
-from components.styles import inject_styles
+from components.styles import inject_styles, eyebrow
 
 inject_styles()
+
+eyebrow("05", "model evaluation")
 
 st.markdown("<h2>Model Evaluation</h2>", unsafe_allow_html=True)
 st.markdown(
@@ -63,7 +65,7 @@ brier = np.mean((probs - actuals) ** 2)
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    auc_color = "#22d3ee" if auc >= 0.65 else "#f5f5f5"
+    auc_color = "#f5f5f5" if auc >= 0.65 else "#f5f5f5"
     st.markdown(
         f"""<div style="background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:20px;text-align:center;">
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">AUC Score</div>
@@ -73,7 +75,7 @@ with col1:
         unsafe_allow_html=True,
     )
 with col2:
-    brier_color = "#22d3ee" if brier < 0.22 else "#f5f5f5"
+    brier_color = "#f5f5f5" if brier < 0.22 else "#f5f5f5"
     st.markdown(
         f"""<div style="background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:20px;text-align:center;">
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">Brier Score</div>
@@ -130,8 +132,8 @@ fig_cal.add_trace(go.Scatter(
     x=cal_df["avg_predicted"],
     y=cal_df["actual_win_rate"] * 100,
     mode="lines+markers", name="CAGEBOT",
-    line=dict(color="#22d3ee", width=2.5),
-    marker=dict(size=cal_df["count"].clip(upper=30) * 0.8 + 6, color="#22d3ee",
+    line=dict(color="#f5f5f5", width=2.5),
+    marker=dict(size=cal_df["count"].clip(upper=30) * 0.8 + 6, color="#f5f5f5",
                 line=dict(width=1, color="#222")),
     hovertemplate=(
         "Predicted: %{x:.1f}%<br>"
@@ -142,10 +144,10 @@ fig_cal.add_trace(go.Scatter(
 ))
 
 fig_cal.update_layout(
-    plot_bgcolor="#0a0a0a", paper_bgcolor="#0a0a0a",
+    plot_bgcolor="#060606", paper_bgcolor="#060606",
     font=dict(color="#f5f5f5", family="Exo 2"),
-    xaxis=dict(title="Model Predicted Probability %", gridcolor="#1a1a1a", range=[45, 100]),
-    yaxis=dict(title="Actual Win Rate %", gridcolor="#1a1a1a", range=[30, 100]),
+    xaxis=dict(title="Model Predicted Probability %", gridcolor="#1c1c20", range=[45, 100]),
+    yaxis=dict(title="Actual Win Rate %", gridcolor="#1c1c20", range=[30, 100]),
     margin=dict(l=50, r=20, t=20, b=50),
     height=380,
     showlegend=True,
@@ -177,7 +179,7 @@ fig_conf.add_trace(go.Bar(
     y=cal_df["actual_win_rate"] * 100,
     marker=dict(
         color=cal_df["actual_win_rate"] * 100,
-        colorscale=[[0, "#dc2626"], [0.5, "#f5f5f5"], [1, "#22d3ee"]],
+        colorscale=[[0, "#dc2626"], [0.5, "#f5f5f5"], [1, "#f5f5f5"]],
         cmin=40, cmax=90,
         line=dict(width=1, color="#222"),
     ),
@@ -192,10 +194,10 @@ fig_conf.add_hline(y=50, line_dash="dash", line_color="#555",
                    annotation_text="Coin flip", annotation_font_color="#555")
 
 fig_conf.update_layout(
-    plot_bgcolor="#0a0a0a", paper_bgcolor="#0a0a0a",
+    plot_bgcolor="#060606", paper_bgcolor="#060606",
     font=dict(color="#f5f5f5", family="Exo 2"),
-    xaxis=dict(title="Model Confidence Bucket", gridcolor="#1a1a1a"),
-    yaxis=dict(title="Actual Accuracy %", gridcolor="#1a1a1a", range=[30, 100]),
+    xaxis=dict(title="Model Confidence Bucket", gridcolor="#1c1c20"),
+    yaxis=dict(title="Actual Accuracy %", gridcolor="#1c1c20", range=[30, 100]),
     margin=dict(l=50, r=20, t=20, b=50),
     height=350,
     showlegend=False,
@@ -220,21 +222,21 @@ wrong_probs = df[df["model_correct_int"] == 0]["model_prob"]
 
 fig_dist.add_trace(go.Histogram(
     x=correct_probs, name="Correct",
-    marker_color="#22d3ee", opacity=0.7,
+    marker_color="#f5f5f5", opacity=0.7,
     xbins=dict(start=50, end=100, size=5),
 ))
 fig_dist.add_trace(go.Histogram(
     x=wrong_probs, name="Wrong",
-    marker_color="#dc2626", opacity=0.7,
+    marker_color="#38383e", opacity=0.7,
     xbins=dict(start=50, end=100, size=5),
 ))
 
 fig_dist.update_layout(
     barmode="overlay",
-    plot_bgcolor="#0a0a0a", paper_bgcolor="#0a0a0a",
+    plot_bgcolor="#060606", paper_bgcolor="#060606",
     font=dict(color="#f5f5f5", family="Exo 2"),
-    xaxis=dict(title="Model Confidence %", gridcolor="#1a1a1a"),
-    yaxis=dict(title="Number of Fights", gridcolor="#1a1a1a"),
+    xaxis=dict(title="Model Confidence %", gridcolor="#1c1c20"),
+    yaxis=dict(title="Number of Fights", gridcolor="#1c1c20"),
     margin=dict(l=50, r=20, t=20, b=50),
     height=300,
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
