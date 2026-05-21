@@ -245,48 +245,33 @@ if cm_df is not None and not cm_df.empty:
     und_won = int(cm_pivot.loc["Picked Underdog", "Pick Won"])
     und_lost = int(cm_pivot.loc["Picked Underdog", "Pick Lost"])
 
-    st.markdown(f"""
-    <div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:0;
-        background:#060606;border:1px solid #1c1c20;border-radius:10px;overflow:hidden;">
-        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;"></div>
-        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;
-            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
-            letter-spacing:0.18em;text-align:center;">Pick Won</div>
-        <div style="background:#0b0b0c;padding:16px;border-bottom:1px solid #1c1c20;
-            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
-            letter-spacing:0.18em;text-align:center;">Pick Lost</div>
+    fav_pct = round(100 * fav_won / (fav_won + fav_lost), 1) if fav_won + fav_lost > 0 else 0
+    und_pct = round(100 * und_won / (und_won + und_lost), 1) if und_won + und_lost > 0 else 0
+    fav_won_pct = round(100 * fav_won / total_cm, 1)
+    fav_lost_pct = round(100 * fav_lost / total_cm, 1)
+    und_won_pct = round(100 * und_won / total_cm, 1)
+    und_lost_pct = round(100 * und_lost / total_cm, 1)
 
-        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;
-            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
-            letter-spacing:0.18em;">Favorite</div>
-        <div style="padding:24px 16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;text-align:center;">
-            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#10b981;line-height:1;">{fav_won}</div>
-            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
-                {round(100*fav_won/total_cm,1)}%</div></div>
-        <div style="padding:24px 16px;border-bottom:1px solid #1c1c20;text-align:center;">
-            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#dc2626;line-height:1;">{fav_lost}</div>
-            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
-                {round(100*fav_lost/total_cm,1)}%</div></div>
+    hdr = "font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;letter-spacing:0.18em;"
+    cell_num = "font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;line-height:1;"
+    cell_pct = "font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;"
 
-        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;
-            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
-            letter-spacing:0.18em;">Underdog</div>
-        <div style="padding:24px 16px;border-right:1px solid #1c1c20;text-align:center;position:relative;">
-            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#f5f5f5;line-height:1;">{und_won}</div>
-            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
-                {round(100*und_won/total_cm,1)}%</div>
-            <div style="position:absolute;top:8px;right:10px;font-family:JetBrains Mono,monospace;
-                font-size:8px;letter-spacing:0.2em;color:#f5f5f5;text-transform:uppercase;">// value zone</div></div>
-        <div style="padding:24px 16px;text-align:center;">
-            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#dc2626;line-height:1;">{und_lost}</div>
-            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
-                {round(100*und_lost/total_cm,1)}%</div></div>
-    </div>
-    <p style="font-family:JetBrains Mono,monospace;color:#5a5a62;font-size:10px;text-align:center;margin-top:8px;">
-        Favorite picks: {fav_won}/{fav_won+fav_lost} = {round(100*fav_won/(fav_won+fav_lost),1) if fav_won+fav_lost > 0 else 0}% ·
-        Underdog picks: {und_won}/{und_won+und_lost} = {round(100*und_won/(und_won+und_lost),1) if und_won+und_lost > 0 else 0}%
-    </p>
-    """, unsafe_allow_html=True)
+    cm_html = (
+        f'<div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:0;background:#060606;border:1px solid #1c1c20;border-radius:10px;overflow:hidden;">'
+        f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;"></div>'
+        f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;{hdr}text-align:center;">Pick Won</div>'
+        f'<div style="background:#0b0b0c;padding:16px;border-bottom:1px solid #1c1c20;{hdr}text-align:center;">Pick Lost</div>'
+        f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;{hdr}">Favorite</div>'
+        f'<div style="padding:24px 16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;text-align:center;"><div style="{cell_num}color:#10b981;">{fav_won}</div><div style="{cell_pct}">{fav_won_pct}%</div></div>'
+        f'<div style="padding:24px 16px;border-bottom:1px solid #1c1c20;text-align:center;"><div style="{cell_num}color:#dc2626;">{fav_lost}</div><div style="{cell_pct}">{fav_lost_pct}%</div></div>'
+        f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;{hdr}">Underdog</div>'
+        f'<div style="padding:24px 16px;border-right:1px solid #1c1c20;text-align:center;position:relative;"><div style="{cell_num}color:#f5f5f5;">{und_won}</div><div style="{cell_pct}">{und_won_pct}%</div><div style="position:absolute;top:8px;right:10px;font-family:JetBrains Mono,monospace;font-size:8px;letter-spacing:0.2em;color:#f5f5f5;text-transform:uppercase;">// value zone</div></div>'
+        f'<div style="padding:24px 16px;text-align:center;"><div style="{cell_num}color:#dc2626;">{und_lost}</div><div style="{cell_pct}">{und_lost_pct}%</div></div>'
+        f'</div>'
+        f'<p style="font-family:JetBrains Mono,monospace;color:#5a5a62;font-size:10px;text-align:center;margin-top:8px;">'
+        f'Favorite picks: {fav_won}/{fav_won+fav_lost} = {fav_pct}% · Underdog picks: {und_won}/{und_won+und_lost} = {und_pct}%</p>'
+    )
+    st.markdown(cm_html, unsafe_allow_html=True)
 
 with st.expander("🔧 View SQL"):
     st.code("""SELECT model_prob, model_correct
