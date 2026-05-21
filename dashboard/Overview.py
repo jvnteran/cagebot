@@ -21,7 +21,7 @@ inject_styles()
 # --- Header ---
 eyebrow("00", "overview")
 
-st.markdown("<h2 style='margin-bottom:0;font-size:28px;'>Autonomous UFC Prediction Engine</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='margin-bottom:0;font-size:28px;'>End-to-End ML Fight Prediction Engine</h2>", unsafe_allow_html=True)
 st.markdown(
     "<p style='color:#8e8e96;font-size:13px;margin-top:8px;line-height:1.7;max-width:720px;'>"
     "CAGEBOT is a production machine learning system that predicts UFC fight outcomes — "
