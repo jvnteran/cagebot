@@ -14,8 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Set the sidebar nav label for this page
-st.sidebar.page_link("app.py", label="Overview", icon="📊")
+
 
 inject_styles()
 

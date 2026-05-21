@@ -43,9 +43,17 @@ section[data-testid="stSidebar"] {
     background-color: var(--bg-010) !important;
     border-right: 1px solid var(--line-1) !important;
 }
+section[data-testid="stSidebar"] > div:first-child {
+    display: flex;
+    flex-direction: column;
+}
 section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"] {
     font-family: 'Exo 2', sans-serif;
     font-size: 13px;
+}
+/* Move CAGEBOT brand above nav */
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"]:first-of-type {
+    order: -2;
 }
 
 /* === METRIC CARDS === */
@@ -93,6 +101,15 @@ header[data-testid="stHeader"] {
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
+/* Rename "app" nav link to "Overview" */
+section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"]:first-of-type span {
+    font-size: 0 !important;
+}
+section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"]:first-of-type span::after {
+    content: "Overview";
+    font-size: 13px;
+}
+
 /* === CODE BLOCKS === */
 code { font-family: 'JetBrains Mono', monospace !important; }
 </style>
@@ -104,7 +121,7 @@ SIDEBAR_BRAND = (
     "letter-spacing:0.04em;color:#ffffff;-webkit-text-stroke:0.5px #ffffff;"
     "text-shadow:0 0 18px rgba(255,255,255,0.25);'>CAGEBOT</span>"
     "<br><span style='font-family:JetBrains Mono,monospace;font-size:9px;"
-    "color:#5a5a62;text-transform:uppercase;letter-spacing:0.15em;'>"
+    "color:#c8c8cf;text-transform:uppercase;letter-spacing:0.15em;'>"
     "prediction engine</span></div>"
 )
 
@@ -113,25 +130,25 @@ SIDEBAR_STATUS = (
     "padding:12px;font-family:JetBrains Mono,monospace;font-size:10px;"
     "color:#8e8e96;margin-top:16px;'>"
     "<div style='display:flex;align-items:center;justify-content:space-between;"
-    "font-size:9px;letter-spacing:0.2em;color:#5a5a62;text-transform:uppercase;"
+    "font-size:9px;letter-spacing:0.2em;color:#c8c8cf;text-transform:uppercase;"
     "margin-bottom:10px;'>"
     "<span>// system</span>"
     "<span style='width:6px;height:6px;border-radius:50%;background:#10b981;"
     "box-shadow:0 0 8px #10b981;display:inline-block;'></span></div>"
     "<div style='display:flex;justify-content:space-between;padding:4px 0;"
     "border-bottom:1px dashed #1c1c20;'>"
-    "<span style='color:#5a5a62;text-transform:uppercase;letter-spacing:0.1em;'>model</span>"
+    "<span style='color:#c8c8cf;text-transform:uppercase;letter-spacing:0.1em;'>model</span>"
     "<span style='color:#c8c8cf;'>V2.4</span></div>"
     "<div style='display:flex;justify-content:space-between;padding:4px 0;"
     "border-bottom:1px dashed #1c1c20;'>"
-    "<span style='color:#5a5a62;text-transform:uppercase;letter-spacing:0.1em;'>features</span>"
+    "<span style='color:#c8c8cf;text-transform:uppercase;letter-spacing:0.1em;'>features</span>"
     "<span style='color:#c8c8cf;'>154</span></div>"
     "<div style='display:flex;justify-content:space-between;padding:4px 0;"
     "border-bottom:1px dashed #1c1c20;'>"
-    "<span style='color:#5a5a62;text-transform:uppercase;letter-spacing:0.1em;'>vps</span>"
+    "<span style='color:#c8c8cf;text-transform:uppercase;letter-spacing:0.1em;'>vps</span>"
     "<span style='color:#c8c8cf;'>SF03</span></div>"
     "<div style='display:flex;justify-content:space-between;padding:4px 0;'>"
-    "<span style='color:#5a5a62;text-transform:uppercase;letter-spacing:0.1em;'>schema</span>"
+    "<span style='color:#c8c8cf;text-transform:uppercase;letter-spacing:0.1em;'>schema</span>"
     "<span style='color:#c8c8cf;'>6 tables</span></div>"
     "</div>"
 )
