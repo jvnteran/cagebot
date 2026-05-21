@@ -241,11 +241,10 @@ if best_calls is not None and not best_calls.empty:
             border-top:1px solid #f5f5f5;border-left:1px solid #f5f5f5;"></div>
         <div style="position:absolute;bottom:0;right:0;width:24px;height:24px;
             border-bottom:1px solid #f5f5f5;border-right:1px solid #f5f5f5;"></div>
-        <div style="font-family:JetBrains Mono,monospace;font-size:9px;color:#5a5a62;
-            letter-spacing:0.18em;text-transform:uppercase;">{event}</div>
+        <div style="font-family:JetBrains Mono,monospace;font-size:9px;color:#c8c8cf;
+            letter-spacing:0.18em;text-transform:uppercase;min-height:28px;">{event}</div>
         <div style="font-family:Chakra Petch,sans-serif;font-size:16px;letter-spacing:0.04em;
-            text-transform:uppercase;color:#f5f5f5;margin:4px 0 10px;line-height:1.1;">{name}</div>
-        <div style="flex:1;"></div>
+            text-transform:uppercase;color:#f5f5f5;margin:4px 0 10px;line-height:1.1;min-height:20px;">{name}</div>
         <div style="display:flex;justify-content:space-between;font-family:JetBrains Mono,monospace;
             font-size:11px;color:#8e8e96;padding:3px 0;">
             <span>model</span><span style="color:#f5f5f5;">{row.model_prob}%</span></div>

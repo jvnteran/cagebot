@@ -29,8 +29,13 @@ CUSTOM_CSS = """
 /* === GLOBAL TYPOGRAPHY === */
 html, body, [class*="css"] {
     font-family: 'Exo 2', sans-serif !important;
+    font-size: 16px !important;
+    color: #f5f5f5 !important;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+}
+p, span, div, li, td, th, label {
+    color: #f5f5f5;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Chakra Petch', sans-serif !important;
@@ -93,6 +98,18 @@ header[data-testid="stHeader"] {
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
+/* Rename first nav item "app" → "Overview" */
+section[data-testid="stSidebar"] ul li:first-child span {
+    visibility: hidden;
+    position: relative;
+}
+section[data-testid="stSidebar"] ul li:first-child span::after {
+    content: "Overview";
+    visibility: visible;
+    position: absolute;
+    left: 0;
+}
+
 
 /* === CODE BLOCKS === */
 code { font-family: 'JetBrains Mono', monospace !important; }
@@ -149,7 +166,7 @@ def eyebrow(system_num: str, label: str):
     """Render a system eyebrow: // SYSTEM 00 · OVERVIEW"""
     st.markdown(
         f"<p style='font-family:JetBrains Mono,monospace;font-size:10px;"
-        f"color:#5a5a62;text-transform:uppercase;letter-spacing:0.25em;"
+        f"color:#c8c8cf;text-transform:uppercase;letter-spacing:0.25em;"
         f"margin-bottom:6px;'>// system {system_num} · {label}</p>",
         unsafe_allow_html=True,
     )
