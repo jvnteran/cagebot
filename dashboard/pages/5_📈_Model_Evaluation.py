@@ -183,9 +183,9 @@ fig_conf.add_trace(go.Bar(
         cmin=40, cmax=90,
         line=dict(width=1, color="#222"),
     ),
-    text=[f"{v:.0f}% ({n})" for v, n in zip(cal_df["actual_win_rate"] * 100, cal_df["count"])],
+    text=[f"{v:.0f}%  ·  n={n}" for v, n in zip(cal_df["actual_win_rate"] * 100, cal_df["count"])],
     textposition="outside",
-    textfont=dict(color="#888", size=11),
+    textfont=dict(color="#c8c8cf", size=11, family="JetBrains Mono"),
     hovertemplate="Confidence: %{x}<br>Accuracy: %{y:.1f}%<br>Fights: %{customdata}<extra></extra>",
     customdata=cal_df["count"],
 ))
@@ -204,51 +204,89 @@ fig_conf.update_layout(
 )
 st.plotly_chart(fig_conf, use_container_width=True)
 
-# --- Confidence distribution ---
+# --- Confusion Matrix ---
 st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("### Prediction Confidence Distribution")
+st.markdown("### Confusion Matrix")
 st.markdown(
     "<p style='color:#888;font-size:13px;'>"
-    "How confident is the model across all predictions? A model that always outputs "
-    "50-55% isn't useful. A model that spreads its confidence shows it's learning "
-    "meaningful patterns.</p>",
+    "How does the model perform when picking favorites vs underdogs? "
+    "The bottom-left cell — underdog picks that won — is where the model "
+    "finds value the market misses.</p>",
     unsafe_allow_html=True,
 )
 
-fig_dist = go.Figure()
+with st.spinner("Loading confusion matrix..."):
+    cm_df = safe_query("""
+        SELECT
+            CASE WHEN os.implied_pct > 50 THEN 'Picked Favorite' ELSE 'Picked Underdog' END AS pick_type,
+            CASE WHEN f.actual_winner_id = f.model_pick_id THEN 'Pick Won' ELSE 'Pick Lost' END AS outcome,
+            COUNT(*) AS fights
+        FROM fights f
+        LEFT JOIN odds_snapshots os ON os.fight_id = f.id
+            AND os.snapshot_type = 'opening' AND os.bookmaker = 'consensus'
+        WHERE f.actual_winner_id IS NOT NULL
+          AND f.finish_method NOT IN ('NC', 'Cancelled', 'DRAW')
+        GROUP BY 1, 2
+    """)
 
-correct_probs = df[df["model_correct_int"] == 1]["model_prob"]
-wrong_probs = df[df["model_correct_int"] == 0]["model_prob"]
+if cm_df is not None and not cm_df.empty:
+    cm_pivot = cm_df.pivot(index="pick_type", columns="outcome", values="fights").fillna(0)
+    total_cm = cm_pivot.values.sum()
 
-fig_dist.add_trace(go.Histogram(
-    x=correct_probs, name="Correct",
-    marker_color="#10b981", opacity=0.75,
-    xbins=dict(start=50, end=100, size=5),
-))
-fig_dist.add_trace(go.Histogram(
-    x=wrong_probs, name="Wrong",
-    marker_color="#dc2626", opacity=0.5,
-    xbins=dict(start=50, end=100, size=5),
-))
+    for col in ["Pick Won", "Pick Lost"]:
+        if col not in cm_pivot.columns:
+            cm_pivot[col] = 0
+    for idx in ["Picked Favorite", "Picked Underdog"]:
+        if idx not in cm_pivot.index:
+            cm_pivot.loc[idx] = 0
 
-fig_dist.update_layout(
-    barmode="overlay",
-    plot_bgcolor="#060606", paper_bgcolor="#060606",
-    font=dict(color="#f5f5f5", family="Exo 2"),
-    xaxis=dict(title="Model Confidence %", gridcolor="#1c1c20"),
-    yaxis=dict(title="Number of Fights", gridcolor="#1c1c20"),
-    margin=dict(l=50, r=20, t=20, b=50),
-    height=300,
-    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-)
-st.plotly_chart(fig_dist, use_container_width=True)
+    fav_won = int(cm_pivot.loc["Picked Favorite", "Pick Won"])
+    fav_lost = int(cm_pivot.loc["Picked Favorite", "Pick Lost"])
+    und_won = int(cm_pivot.loc["Picked Underdog", "Pick Won"])
+    und_lost = int(cm_pivot.loc["Picked Underdog", "Pick Lost"])
 
-st.markdown(
-    "<p style='color:#666;font-size:12px;text-align:center;'>"
-    "Green = model was correct, red = model was wrong. Ideally, correct predictions "
-    "cluster at high confidence and wrong predictions cluster at low confidence.</p>",
-    unsafe_allow_html=True,
-)
+    st.markdown(f"""
+    <div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:0;
+        background:#060606;border:1px solid #1c1c20;border-radius:10px;overflow:hidden;">
+        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;"></div>
+        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;
+            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
+            letter-spacing:0.18em;text-align:center;">Pick Won</div>
+        <div style="background:#0b0b0c;padding:16px;border-bottom:1px solid #1c1c20;
+            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
+            letter-spacing:0.18em;text-align:center;">Pick Lost</div>
+
+        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;
+            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
+            letter-spacing:0.18em;">Favorite</div>
+        <div style="padding:24px 16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;text-align:center;">
+            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#10b981;line-height:1;">{fav_won}</div>
+            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
+                {round(100*fav_won/total_cm,1)}%</div></div>
+        <div style="padding:24px 16px;border-bottom:1px solid #1c1c20;text-align:center;">
+            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#dc2626;line-height:1;">{fav_lost}</div>
+            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
+                {round(100*fav_lost/total_cm,1)}%</div></div>
+
+        <div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;
+            font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;
+            letter-spacing:0.18em;">Underdog</div>
+        <div style="padding:24px 16px;border-right:1px solid #1c1c20;text-align:center;position:relative;">
+            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#f5f5f5;line-height:1;">{und_won}</div>
+            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
+                {round(100*und_won/total_cm,1)}%</div>
+            <div style="position:absolute;top:8px;right:10px;font-family:JetBrains Mono,monospace;
+                font-size:8px;letter-spacing:0.2em;color:#f5f5f5;text-transform:uppercase;">// value zone</div></div>
+        <div style="padding:24px 16px;text-align:center;">
+            <div style="font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;color:#dc2626;line-height:1;">{und_lost}</div>
+            <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;">
+                {round(100*und_lost/total_cm,1)}%</div></div>
+    </div>
+    <p style="font-family:JetBrains Mono,monospace;color:#5a5a62;font-size:10px;text-align:center;margin-top:8px;">
+        Favorite picks: {fav_won}/{fav_won+fav_lost} = {round(100*fav_won/(fav_won+fav_lost),1) if fav_won+fav_lost > 0 else 0}% ·
+        Underdog picks: {und_won}/{und_won+und_lost} = {round(100*und_won/(und_won+und_lost),1) if und_won+und_lost > 0 else 0}%
+    </p>
+    """, unsafe_allow_html=True)
 
 with st.expander("🔧 View SQL"):
     st.code("""SELECT model_prob, model_correct
