@@ -28,7 +28,7 @@ def run_query(sql: str, params: tuple = None) -> pd.DataFrame:
         return pd.read_sql_query(sql, st.session_state.db_conn, params=params)
 
 
-def safe_query(sql: str, params: tuple = None) -> pd.DataFrame | None:
+def safe_query(sql: str, params: tuple = None):
     """Run a query with error handling. Returns None and shows error on failure."""
     try:
         return run_query(sql, params)
