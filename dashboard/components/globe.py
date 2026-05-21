@@ -49,11 +49,29 @@ def render_globe(points: list[dict], height: int = 520):
     const canvas = document.getElementById('globe');
     const ctx = canvas.getContext('2d');
     const tt = document.getElementById('tt');
-    let rot = 0, paused = false, hover = null;
+    let rot = 0, dragging = false, dragStartX = 0, dragStartRot = 0, hover = null;
 
-    canvas.addEventListener('mouseenter', () => paused = true);
-    canvas.addEventListener('mouseleave', () => {{ paused = false; hover = null; tt.style.display = 'none'; }});
+    // Drag to rotate
+    canvas.addEventListener('mousedown', (e) => {{
+        dragging = true;
+        dragStartX = e.clientX;
+        dragStartRot = rot;
+        canvas.style.cursor = 'grabbing';
+    }});
+    window.addEventListener('mouseup', () => {{
+        dragging = false;
+        canvas.style.cursor = 'grab';
+    }});
+    canvas.style.cursor = 'grab';
+
+    canvas.addEventListener('mouseleave', () => {{ hover = null; tt.style.display = 'none'; }});
     canvas.addEventListener('mousemove', (e) => {{
+        if (dragging) {{
+            const dx = e.clientX - dragStartX;
+            rot = (dragStartRot + dx * 0.5) % 360;
+            if (rot < 0) rot += 360;
+            return;
+        }}
         const rect = canvas.getBoundingClientRect();
         const mx = (e.clientX - rect.left) * (SIZE / rect.width);
         const my = (e.clientY - rect.top) * (SIZE / rect.height);
@@ -190,7 +208,7 @@ def render_globe(points: list[dict], height: int = 520):
         ctx.textAlign = 'right';
         ctx.fillText('LON ' + String(Math.round(rot)).padStart(3,'0') + '°', CX+R+B, CY-R-22);
         ctx.textAlign = 'left';
-        ctx.fillText('ORBIT // ' + (paused ? 'PAUSED' : 'TRACKING'), CX-R-B, CY+R+30);
+        ctx.fillText('ORBIT // ' + (dragging ? 'MANUAL' : 'TRACKING'), CX-R-B, CY+R+30);
         ctx.textAlign = 'right';
         ctx.fillText(POINTS.length + ' NODES', CX+R+B, CY+R+30);
         ctx.textAlign = 'left';
@@ -202,7 +220,7 @@ def render_globe(points: list[dict], height: int = 520):
     }}
 
     function animate() {{
-        if (!document.hidden && !paused) rot = (rot + 0.15) % 360;
+        if (!document.hidden && !dragging) rot = (rot + 0.15) % 360;
         draw();
         setTimeout(animate, 50);
     }}

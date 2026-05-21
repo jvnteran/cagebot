@@ -210,7 +210,7 @@ def best_call_card(name: str, event: str, model_prob: float, market_prob: float,
     """Trading-card style best call with corner brackets."""
     st.markdown(
         f"""<div style="background:#060606;border:1px solid #1c1c20;border-radius:8px;
-            padding:16px;position:relative;overflow:hidden;">
+            padding:16px;position:relative;overflow:hidden;min-height:200px;">
         <div style="position:absolute;top:0;left:0;width:24px;height:24px;
             border-top:1px solid #f5f5f5;border-left:1px solid #f5f5f5;"></div>
         <div style="position:absolute;bottom:0;right:0;width:24px;height:24px;

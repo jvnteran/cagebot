@@ -41,9 +41,14 @@ with col2:
 with col3:
     st.metric("Stance", fighter.stance or "N/A")
 with col4:
-    st.metric("Height", f"{fighter.height_in:.0f}\"" if fighter.height_in else "N/A")
+    if fighter.height_in:
+        ft = int(fighter.height_in // 12)
+        inch = int(fighter.height_in % 12)
+        st.metric("Height", f"{ft}'{inch}\"")
+    else:
+        st.metric("Height", "N/A")
 with col5:
-    st.metric("Reach", f"{fighter.reach_in:.0f}\"" if fighter.reach_in else "N/A")
+    st.metric("Reach", f"{fighter.reach_in:.0f} in" if fighter.reach_in else "N/A")
 
 st.markdown("<br>", unsafe_allow_html=True)
 

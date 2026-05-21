@@ -132,8 +132,8 @@ fig_cal.add_trace(go.Scatter(
     x=cal_df["avg_predicted"],
     y=cal_df["actual_win_rate"] * 100,
     mode="lines+markers", name="CAGEBOT",
-    line=dict(color="#f59e0b", width=2.5),
-    marker=dict(size=cal_df["count"].clip(upper=30) * 0.8 + 6, color="#f59e0b",
+    line=dict(color="#dc2626", width=2.5),
+    marker=dict(size=cal_df["count"].clip(upper=30) * 0.8 + 6, color="#dc2626",
                 line=dict(width=1, color="#222")),
     hovertemplate=(
         "Predicted: %{x:.1f}%<br>"
@@ -179,7 +179,7 @@ fig_conf.add_trace(go.Bar(
     y=cal_df["actual_win_rate"] * 100,
     marker=dict(
         color=cal_df["actual_win_rate"] * 100,
-        colorscale=[[0, "#dc2626"], [0.5, "#f59e0b"], [1, "#10b981"]],
+        colorscale=[[0, "#dc2626"], [0.5, "#f59e0b"], [1, "#10b981"]],  # red → amber → green
         cmin=40, cmax=90,
         line=dict(width=1, color="#222"),
     ),

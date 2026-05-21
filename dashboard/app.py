@@ -8,7 +8,7 @@ from components.db import run_query, safe_query
 from components.styles import inject_styles, eyebrow, hero_number, stat_card, best_call_card, section_title
 
 st.set_page_config(
-    page_title="CAGEBOT",
+    page_title="CAGEBOT — Overview",
     page_icon="🥊",
     layout="wide",
     initial_sidebar_state="expanded",
