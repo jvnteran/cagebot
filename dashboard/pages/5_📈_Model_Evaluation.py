@@ -132,8 +132,8 @@ fig_cal.add_trace(go.Scatter(
     x=cal_df["avg_predicted"],
     y=cal_df["actual_win_rate"] * 100,
     mode="lines+markers", name="CAGEBOT",
-    line=dict(color="#f5f5f5", width=2.5),
-    marker=dict(size=cal_df["count"].clip(upper=30) * 0.8 + 6, color="#f5f5f5",
+    line=dict(color="#f59e0b", width=2.5),
+    marker=dict(size=cal_df["count"].clip(upper=30) * 0.8 + 6, color="#f59e0b",
                 line=dict(width=1, color="#222")),
     hovertemplate=(
         "Predicted: %{x:.1f}%<br>"
@@ -179,7 +179,7 @@ fig_conf.add_trace(go.Bar(
     y=cal_df["actual_win_rate"] * 100,
     marker=dict(
         color=cal_df["actual_win_rate"] * 100,
-        colorscale=[[0, "#dc2626"], [0.5, "#f5f5f5"], [1, "#f5f5f5"]],
+        colorscale=[[0, "#dc2626"], [0.5, "#f59e0b"], [1, "#10b981"]],
         cmin=40, cmax=90,
         line=dict(width=1, color="#222"),
     ),
@@ -222,12 +222,12 @@ wrong_probs = df[df["model_correct_int"] == 0]["model_prob"]
 
 fig_dist.add_trace(go.Histogram(
     x=correct_probs, name="Correct",
-    marker_color="#f5f5f5", opacity=0.7,
+    marker_color="#10b981", opacity=0.75,
     xbins=dict(start=50, end=100, size=5),
 ))
 fig_dist.add_trace(go.Histogram(
     x=wrong_probs, name="Wrong",
-    marker_color="#38383e", opacity=0.7,
+    marker_color="#dc2626", opacity=0.5,
     xbins=dict(start=50, end=100, size=5),
 ))
 
@@ -245,7 +245,7 @@ st.plotly_chart(fig_dist, use_container_width=True)
 
 st.markdown(
     "<p style='color:#666;font-size:12px;text-align:center;'>"
-    "Cyan = model was correct, red = model was wrong. Ideally, correct predictions "
+    "Green = model was correct, red = model was wrong. Ideally, correct predictions "
     "cluster at high confidence and wrong predictions cluster at low confidence.</p>",
     unsafe_allow_html=True,
 )

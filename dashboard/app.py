@@ -120,22 +120,20 @@ override_total = int(m.override_count)
 override_correct = int(m.override_correct)
 override_pct = round(100 * override_correct / override_total, 1) if override_total > 0 else 0
 
-# Hero layout: big number left, stats right
-col_hero, col_stats = st.columns([1, 1.4])
-with col_hero:
-    hero_number(
-        combined_pct, "combined accuracy",
-        f"sample · {int(m.decided)} fights  ·  edge · +{round(combined_pct - 50, 1)}pp vs coin flip"
-    )
-
-with col_stats:
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        stat_card("model only", f"{model_pct}%", f"{int(m.model_correct)} / {int(m.decided)} · pure XGBoost")
-    with c2:
-        stat_card("override hit-rate", f"{override_pct}%", f"{override_correct} / {override_total} · human-in-loop")
-    with c3:
-        stat_card("events", str(int(m.events)), "completed since launch")
+# Metric cards — equal grid
+c1, c2, c3, c4 = st.columns(4)
+with c1:
+    stat_card("combined", f"{combined_pct}%",
+              f"{int(m.combined_correct)} / {int(m.decided)} · model + overrides")
+with c2:
+    stat_card("model only", f"{model_pct}%",
+              f"{int(m.model_correct)} / {int(m.decided)} · pure XGBoost")
+with c3:
+    stat_card("override hit-rate", f"{override_pct}%",
+              f"{override_correct} / {override_total} · human-in-loop")
+with c4:
+    stat_card("events", str(int(m.events)),
+              "completed since launch")
 
 # --- Accuracy chart ---
 st.markdown("<br>", unsafe_allow_html=True)
@@ -246,26 +244,28 @@ st.markdown(
     "<div style='background:#060606;border:1px solid #1c1c20;border-left:2px solid #dc2626;"
     "border-radius:0 10px 10px 0;padding:24px 28px;'>"
     "<h3 style='font-family:Chakra Petch,sans-serif;font-size:14px;letter-spacing:0.18em;"
-    "text-transform:uppercase;color:#f5f5f5;margin-bottom:14px;'>The Story Behind CAGEBOT</h3>"
+    "text-transform:uppercase;color:#f5f5f5;margin-bottom:14px;'>About CAGEBOT</h3>"
     "<p style='font-size:13px;color:#c8c8cf;line-height:1.85;margin:0 0 12px;'>"
-    "CAGEBOT started as a question: can a machine learning model consistently predict "
-    "fight outcomes in the most unpredictable sport on earth? UFC fights are chaotic — "
-    "a single punch or submission attempt can end everything in seconds. Most prediction "
-    "systems fail because they treat fights like statistics problems. CAGEBOT treats them "
-    "like <span style='color:#f5f5f5;font-weight:500;'>information problems</span>.</p>"
+    "CAGEBOT was built to answer a straightforward question: can structured data and "
+    "machine learning predict UFC fight outcomes better than intuition alone? MMA presents "
+    "a unique modeling challenge — small sample sizes, high variance in outcomes, and a "
+    "sport where a single moment can override everything the data suggests. This project "
+    "treats that challenge as an <span style='color:#f5f5f5;font-weight:500;'>"
+    "end-to-end engineering problem</span>, not just a modeling exercise.</p>"
     "<p style='font-size:13px;color:#c8c8cf;line-height:1.85;margin:0 0 12px;'>"
-    "The model ingests 154 features per fight: market odds from 5 sportsbooks, custom ELO "
-    "ratings with inactivity decay, striking volume, takedown rates, and last-3-fight recency "
-    "metrics. But the real edge comes from the <span style='color:#f5f5f5;font-weight:500;'>"
-    "override layer</span> — a human-in-the-loop system "
-    "where the founder reviews every prediction and applies scenario elimination to correct "
-    "fights where the model's statistical view misses the human element.</p>"
+    "The system aggregates market data from multiple sportsbooks, computes custom ELO "
+    "ratings across the full UFC roster, and feeds 154 features into an XGBoost classifier "
+    "for every fight on each card. A <span style='color:#f5f5f5;font-weight:500;'>"
+    "human-in-the-loop override layer</span> then reviews each prediction, applying "
+    "scenario-based reasoning to cases where statistical patterns miss context that only "
+    "domain knowledge can catch.</p>"
     f"<p style='font-size:13px;color:#c8c8cf;line-height:1.85;margin:0;'>"
-    "The system runs autonomously on a DigitalOcean VPS. A phase-aware scheduler detects "
-    "where we are in the fight calendar and dispatches the right pipeline. Six autonomous "
-    f"agents handle specialized tasks. After 6 months and {int(m.decided)} "
-    "decided fights, the system has proven that combining ML with domain expertise "
-    "consistently outperforms either approach alone.</p>"
+    "The entire pipeline — from data ingestion to prediction to results processing — runs "
+    "autonomously on a scheduled cadence. Six specialized agents handle tasks like odds "
+    f"monitoring, fight-week analysis, and post-event evaluation. After {int(m.decided)} "
+    "decided fights across {int(m.events)} events, the data shows that combining ML "
+    "predictions with targeted human corrections produces stronger results than either "
+    "approach in isolation.</p>"
     "</div>",
     unsafe_allow_html=True,
 )
