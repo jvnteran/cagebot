@@ -230,23 +230,36 @@ with st.spinner("Loading..."):
     """)
 
 if best_calls is not None and not best_calls.empty:
-    # Force equal-height columns via CSS
-    st.markdown("""<style>
-    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="stColumn"]) {
-        align-items: stretch !important;
-    }
-    </style>""", unsafe_allow_html=True)
-    cols = st.columns(4)
-    for i, (_, row) in enumerate(best_calls.iterrows()):
-        with cols[i]:
-            market_pct = round(row.opening_implied, 1) if pd.notna(row.opening_implied) else 0
-            best_call_card(
-                row.model_pick.title(),
-                row.event_name,
-                row.model_prob,
-                market_pct,
-                row.edge,
-            )
+    # Render as a single HTML grid for guaranteed equal height
+    cards_html = "<div style='display:grid;grid-template-columns:repeat(4,1fr);gap:12px;'>"
+    for _, row in best_calls.iterrows():
+        market_pct = round(row.opening_implied, 1) if pd.notna(row.opening_implied) else 0
+        name = row.model_pick.title()
+        event = row.event_name
+        cards_html += f"""<div style="background:#060606;border:1px solid #1c1c20;border-radius:8px;
+            padding:16px;position:relative;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="position:absolute;top:0;left:0;width:24px;height:24px;
+            border-top:1px solid #f5f5f5;border-left:1px solid #f5f5f5;"></div>
+        <div style="position:absolute;bottom:0;right:0;width:24px;height:24px;
+            border-bottom:1px solid #f5f5f5;border-right:1px solid #f5f5f5;"></div>
+        <div style="font-family:JetBrains Mono,monospace;font-size:9px;color:#5a5a62;
+            letter-spacing:0.18em;text-transform:uppercase;">{event}</div>
+        <div style="font-family:Chakra Petch,sans-serif;font-size:16px;letter-spacing:0.04em;
+            text-transform:uppercase;color:#f5f5f5;margin:4px 0 10px;line-height:1.1;">{name}</div>
+        <div style="flex:1;"></div>
+        <div style="display:flex;justify-content:space-between;font-family:JetBrains Mono,monospace;
+            font-size:11px;color:#8e8e96;padding:3px 0;">
+            <span>model</span><span style="color:#f5f5f5;">{row.model_prob}%</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:JetBrains Mono,monospace;
+            font-size:11px;color:#8e8e96;padding:3px 0;">
+            <span>market</span><span style="color:#dc2626;">{market_pct}%</span></div>
+        <div style="margin-top:10px;padding:6px 8px;background:rgba(245,245,245,0.06);
+            border:1px solid #5a5a62;border-radius:4px;font-family:JetBrains Mono,monospace;
+            font-size:11px;color:#f5f5f5;text-align:center;letter-spacing:0.05em;">
+            +{row.edge:.1f}pp edge</div>
+        </div>"""
+    cards_html += "</div>"
+    st.markdown(cards_html, unsafe_allow_html=True)
 
 # --- Story ---
 st.markdown("<br>", unsafe_allow_html=True)

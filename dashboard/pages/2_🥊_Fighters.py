@@ -37,7 +37,7 @@ col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
     st.metric("ELO", f"{fighter.current_elo:.0f}")
 with col2:
-    st.metric("Fights", int(fighter.elo_fights))
+    st.metric("ELO Fights", int(fighter.elo_fights))
 with col3:
     st.metric("Stance", fighter.stance or "N/A")
 with col4:
