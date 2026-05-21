@@ -10,7 +10,7 @@ lint:
 
 # Start the Streamlit dashboard (local)
 run:
-	cd dashboard && streamlit run app.py --server.port 8501
+	cd dashboard && streamlit run Overview.py --server.port 8501
 
 # Start PostgreSQL + pgAdmin in Docker
 db-up:

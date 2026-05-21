@@ -32,6 +32,9 @@ with st.spinner("Loading fights..."):
 # Filters
 col1, col2 = st.columns(2)
 with col1:
+if df is None:
+    st.stop()
+
     events = ["All"] + sorted(df["event_name"].unique().tolist(), reverse=True)
     selected_event = st.selectbox("Event", events)
 with col2:

@@ -26,6 +26,9 @@ with st.spinner("Loading fighters..."):
         ORDER BY current_elo DESC
     """)
 
+if fighters_df is None:
+    st.stop()
+
 fighter_names = fighters_df["name"].tolist()
 default_idx = fighter_names.index("islam makhachev") if "islam makhachev" in fighter_names else 0
 selected = st.selectbox("Search fighter", fighter_names, index=default_idx)

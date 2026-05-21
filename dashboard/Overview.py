@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 from components.db import safe_query
-from components.styles import inject_styles, eyebrow, stat_card, best_call_card, section_title
+from components.styles import inject_styles, eyebrow, stat_card, section_title
 
 st.set_page_config(
     page_title="CAGEBOT — Overview",

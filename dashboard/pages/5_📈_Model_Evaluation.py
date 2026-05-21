@@ -32,6 +32,9 @@ with st.spinner("Loading evaluation data..."):
           AND model_prob IS NOT NULL
     """)
 
+if df is None:
+    st.stop()
+
 df["model_correct_int"] = df["model_correct"].astype(int)
 total_fights = len(df)
 

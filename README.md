@@ -237,7 +237,7 @@ DATABASE_URL=postgresql://cagebot:cagebot_dev@localhost:5432/cagebot \
 
 # Run dashboard
 cd dashboard
-streamlit run app.py
+streamlit run Overview.py
 ```
 
 ---
@@ -265,7 +265,7 @@ cagebot/
 │   ├── pre_event.py                 # 10-step pre-event pipeline
 │   └── post_event.py                # 8-step post-event pipeline
 ├── dashboard/
-│   ├── app.py                       # Overview page
+│   ├── Overview.py                    # Overview page
 │   ├── pages/                       # 5 additional pages
 │   └── components/                  # DB connection, styles, query definitions
 ├── tests/unit/                      # 16 ETL unit tests
