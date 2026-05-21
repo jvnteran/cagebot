@@ -29,12 +29,12 @@ with st.spinner("Loading fights..."):
         ORDER BY event_date DESC, model_prob DESC
     """)
 
-# Filters
-col1, col2 = st.columns(2)
-with col1:
 if df is None:
     st.stop()
 
+# Filters
+col1, col2 = st.columns(2)
+with col1:
     events = ["All"] + sorted(df["event_name"].unique().tolist(), reverse=True)
     selected_event = st.selectbox("Event", events)
 with col2:
@@ -108,7 +108,7 @@ st.dataframe(
     },
 )
 
-with st.expander("🔧 View SQL"):
+with st.expander("// view sql"):
     st.code("""SELECT event_name, fighter_a, fighter_b, model_pick, model_prob,
        opening_odds, edge, actual_winner, model_correct, finish_method
 FROM v_fight_detail

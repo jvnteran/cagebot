@@ -101,7 +101,7 @@ if not elo_df.empty:
     history = history.sort_values("Date", ascending=False)
     st.dataframe(history, use_container_width=True, hide_index=True)
 
-    with st.expander("🔧 View SQL"):
+    with st.expander("// view sql"):
         st.code(f"""SELECT h.event_date, h.event_name, h.elo_before, h.elo_after,
        h.elo_delta, h.opponent_name, h.result
 FROM fighter_elo_history h

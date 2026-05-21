@@ -171,32 +171,6 @@ def section_title(title: str):
     )
 
 
-def hero_number(value: float, label: str, sub: str):
-    """Render the hero metric — large number with split decimal."""
-    integer = int(value)
-    decimal = int(round((value - integer) * 10))
-    st.markdown(
-        f"""<div style="background:radial-gradient(circle at 0% 100%,rgba(220,38,38,0.08),transparent 60%),
-            #060606;border:1px solid #dc2626;border-radius:10px;padding:24px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;
-            background:linear-gradient(90deg,#dc2626,transparent);"></div>
-        <div style="font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;
-            text-transform:uppercase;letter-spacing:0.25em;display:flex;align-items:center;gap:8px;">
-            <span style="width:5px;height:5px;background:#dc2626;border-radius:50%;"></span>
-            primary metric // {label}</div>
-        <div style="font-family:Rajdhani,sans-serif;font-weight:700;line-height:0.95;
-            margin:10px 0 4px;display:flex;align-items:baseline;">
-            <span style="font-size:64px;color:#f5f5f5;">{integer}</span>
-            <span style="font-size:32px;color:#5a5a62;font-weight:500;margin-left:2px;">.{decimal}</span>
-            <span style="font-size:22px;color:#5a5a62;margin-left:4px;font-weight:500;">%</span></div>
-        <div style="font-family:Chakra Petch,sans-serif;font-size:16px;letter-spacing:0.15em;
-            text-transform:uppercase;color:#f5f5f5;">model + override</div>
-        <div style="font-family:JetBrains Mono,monospace;font-size:11px;color:#8e8e96;
-            margin-top:14px;">{sub}</div>
-        </div>""",
-        unsafe_allow_html=True,
-    )
-
 
 def stat_card(label: str, value: str, sub: str = ""):
     """Render a secondary stat card."""

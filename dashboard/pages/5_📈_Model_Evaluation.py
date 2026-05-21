@@ -68,7 +68,7 @@ brier = np.mean((probs - actuals) ** 2)
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    auc_color = "#f5f5f5" if auc >= 0.65 else "#f5f5f5"
+    auc_color = "#10b981" if auc >= 0.65 else "#dc2626"
     st.markdown(
         f"""<div style="background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:20px;text-align:center;">
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">AUC Score</div>
@@ -78,7 +78,7 @@ with col1:
         unsafe_allow_html=True,
     )
 with col2:
-    brier_color = "#f5f5f5" if brier < 0.22 else "#f5f5f5"
+    brier_color = "#10b981" if brier < 0.22 else "#dc2626"
     st.markdown(
         f"""<div style="background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:20px;text-align:center;">
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">Brier Score</div>
@@ -276,7 +276,7 @@ if cm_df is not None and not cm_df.empty:
     )
     st.markdown(cm_html, unsafe_allow_html=True)
 
-with st.expander("🔧 View SQL"):
+with st.expander("// view sql"):
     st.code("""SELECT model_prob, model_correct
 FROM v_fight_detail
 WHERE actual_winner IS NOT NULL
