@@ -4,8 +4,8 @@ import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
 
-from components.db import run_query, safe_query
-from components.styles import inject_styles, eyebrow, hero_number, stat_card, best_call_card, section_title
+from components.db import safe_query
+from components.styles import inject_styles, eyebrow, stat_card, best_call_card, section_title
 
 st.set_page_config(
     page_title="CAGEBOT — Overview",
@@ -13,6 +13,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Set the sidebar nav label for this page
+st.sidebar.page_link("app.py", label="Overview", icon="📊")
+
 inject_styles()
 
 # --- Header ---
@@ -226,7 +230,13 @@ with st.spinner("Loading..."):
     """)
 
 if best_calls is not None and not best_calls.empty:
-    cols = st.columns(len(best_calls))
+    # Force equal-height columns via CSS
+    st.markdown("""<style>
+    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="stColumn"]) {
+        align-items: stretch !important;
+    }
+    </style>""", unsafe_allow_html=True)
+    cols = st.columns(4)
     for i, (_, row) in enumerate(best_calls.iterrows()):
         with cols[i]:
             market_pct = round(row.opening_implied, 1) if pd.notna(row.opening_implied) else 0

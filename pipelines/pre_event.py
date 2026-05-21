@@ -80,7 +80,6 @@ def run(event_stem: str, ufcstats_url: str = None) -> bool:
     """
     year = event_stem.split("_")[1]
     event_dir = ROOT / "data" / "processed" / year / event_stem
-    picks_path = event_dir / "picks.csv"
 
     # Load event metadata
     meta_path = event_dir / "event_metadata.json"

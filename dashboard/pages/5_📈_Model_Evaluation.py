@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 
-from components.db import run_query, safe_query
+from components.db import safe_query
 from components.styles import inject_styles, eyebrow
 
 inject_styles()

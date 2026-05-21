@@ -3,7 +3,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 
-from components.db import run_query, safe_query
+from components.db import safe_query
 from components.styles import inject_styles, eyebrow
 
 inject_styles()

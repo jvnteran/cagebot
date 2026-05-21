@@ -2,7 +2,7 @@
 
 import streamlit as st
 
-from components.db import run_query, safe_query
+from components.db import safe_query
 from components.styles import inject_styles, eyebrow, section_title
 from components.globe import render_globe
 

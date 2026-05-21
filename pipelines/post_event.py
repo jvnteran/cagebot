@@ -27,7 +27,6 @@ Usage:
 """
 
 import argparse
-import csv
 import json
 import subprocess
 import sys
@@ -109,7 +108,6 @@ def run(event_stem: str) -> bool:
 
     # ── Step 2: Parse results → results.csv ──────────────────────────
     _log("Step 2/8: Parsing results")
-    results_path = event_dir / "results.csv"
     # [PARSING LOGIC — extracts winner, method, round, time from HTML]
     # HARD GATE: if results are incomplete, return False
     # The scheduler will retry on the next cron tick
