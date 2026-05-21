@@ -252,9 +252,9 @@ if cm_df is not None and not cm_df.empty:
     und_won_pct = round(100 * und_won / total_cm, 1)
     und_lost_pct = round(100 * und_lost / total_cm, 1)
 
-    hdr = "font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;text-transform:uppercase;letter-spacing:0.18em;"
-    cell_num = "font-family:Rajdhani,sans-serif;font-size:36px;font-weight:700;line-height:1;"
-    cell_pct = "font-family:JetBrains Mono,monospace;font-size:10px;color:#5a5a62;margin-top:6px;"
+    hdr = "font-family:JetBrains Mono,monospace;font-size:12px;color:#f5f5f5;text-transform:uppercase;letter-spacing:0.18em;"
+    cell_num = "font-family:Rajdhani,sans-serif;font-size:38px;font-weight:700;line-height:1;"
+    cell_pct = "font-family:JetBrains Mono,monospace;font-size:12px;color:#c8c8cf;margin-top:6px;"
 
     cm_html = (
         f'<div style="display:grid;grid-template-columns:120px 1fr 1fr;gap:0;background:#060606;border:1px solid #1c1c20;border-radius:10px;overflow:hidden;">'
