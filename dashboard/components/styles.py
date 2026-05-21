@@ -99,15 +99,14 @@ header[data-testid="stHeader"] {
 footer {visibility: hidden;}
 
 /* Rename first nav item "app" → "Overview" */
-section[data-testid="stSidebar"] ul li:first-child span {
-    visibility: hidden;
-    position: relative;
+section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"]:first-of-type p {
+    font-size: 0 !important;
+    line-height: 0;
 }
-section[data-testid="stSidebar"] ul li:first-child span::after {
-    content: "Overview";
-    visibility: visible;
-    position: absolute;
-    left: 0;
+section[data-testid="stSidebar"] [data-testid="stSidebarNavLink"]:first-of-type p::before {
+    content: "📊  Overview";
+    font-size: 13px !important;
+    line-height: normal;
 }
 
 
