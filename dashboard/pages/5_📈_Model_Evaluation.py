@@ -68,7 +68,7 @@ brier = np.mean((probs - actuals) ** 2)
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    auc_color = "#10b981" if auc >= 0.65 else "#dc2626"
+    auc_color = "#f5f5f5"
     st.markdown(
         f"""<div style="background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:20px;text-align:center;">
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">AUC Score</div>
@@ -78,7 +78,7 @@ with col1:
         unsafe_allow_html=True,
     )
 with col2:
-    brier_color = "#10b981" if brier < 0.22 else "#dc2626"
+    brier_color = "#f5f5f5"
     st.markdown(
         f"""<div style="background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:20px;text-align:center;">
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">Brier Score</div>
@@ -182,7 +182,7 @@ fig_conf.add_trace(go.Bar(
     y=cal_df["actual_win_rate"] * 100,
     marker=dict(
         color=cal_df["actual_win_rate"] * 100,
-        colorscale=[[0, "#dc2626"], [0.5, "#f59e0b"], [1, "#10b981"]],  # red → amber → green
+        colorscale=[[0, "#ef4444"], [0.35, "#f87171"], [0.5, "#a3a3a3"], [0.7, "#6ee7b7"], [1, "#10b981"]],  # soft red → neutral → green
         cmin=40, cmax=90,
         line=dict(width=1, color="#222"),
     ),
@@ -265,7 +265,7 @@ if cm_df is not None and not cm_df.empty:
         f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;{hdr}text-align:center;">Pick Won</div>'
         f'<div style="background:#0b0b0c;padding:16px;border-bottom:1px solid #1c1c20;{hdr}text-align:center;">Pick Lost</div>'
         f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;{hdr}">Favorite</div>'
-        f'<div style="padding:24px 16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;text-align:center;"><div style="{cell_num}color:#10b981;">{fav_won}</div><div style="{cell_pct}">{fav_won_pct}%</div></div>'
+        f'<div style="padding:24px 16px;border-right:1px solid #1c1c20;border-bottom:1px solid #1c1c20;text-align:center;"><div style="{cell_num}color:#f5f5f5;">{fav_won}</div><div style="{cell_pct}">{fav_won_pct}%</div></div>'
         f'<div style="padding:24px 16px;border-bottom:1px solid #1c1c20;text-align:center;"><div style="{cell_num}color:#dc2626;">{fav_lost}</div><div style="{cell_pct}">{fav_lost_pct}%</div></div>'
         f'<div style="background:#0b0b0c;padding:16px;border-right:1px solid #1c1c20;{hdr}">Underdog</div>'
         f'<div style="padding:24px 16px;border-right:1px solid #1c1c20;text-align:center;position:relative;"><div style="{cell_num}color:#f5f5f5;">{und_won}</div><div style="{cell_pct}">{und_won_pct}%</div><div style="position:absolute;top:8px;right:10px;font-family:JetBrains Mono,monospace;font-size:8px;letter-spacing:0.2em;color:#f5f5f5;text-transform:uppercase;">// value zone</div></div>'
