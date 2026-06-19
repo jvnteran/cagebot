@@ -284,7 +284,7 @@ st.markdown(
     "The entire pipeline — from data ingestion to prediction to results processing — runs "
     "autonomously on a scheduled cadence. Six specialized agents handle tasks like odds "
     f"monitoring, fight-week analysis, and post-event evaluation. After {int(m.decided)} "
-    "decided fights across {int(m.events)} events, the data shows that combining ML "
+    f"decided fights across {int(m.events)} events, the data shows that combining ML "
     "predictions with targeted human corrections produces stronger results than either "
     "approach in isolation.</p>"
     "</div>",

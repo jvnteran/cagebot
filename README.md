@@ -8,7 +8,7 @@
 
 An end-to-end machine learning system that predicts UFC fight outcomes, running autonomously in production since December 2025.
 
-**68% combined accuracy** across 225 decided fights (18 events) — XGBoost model with human-in-the-loop override layer.
+**69.9% combined accuracy** across 256 decided fights (21 events) — XGBoost model with human-in-the-loop override layer.
 
 [Live Dashboard](https://cagebot.streamlit.app) · [Architecture](#architecture) · [Database Schema](#database-schema) · [Model Evaluation](#model-evaluation)
 
@@ -18,11 +18,11 @@ An end-to-end machine learning system that predicts UFC fight outcomes, running 
 
 | Metric | Value |
 |--------|-------|
-| Combined accuracy (model + overrides) | **68.0%** (153/225) |
-| Model-only accuracy | 63.6% (143/225) |
-| Founder override record | 81.3% (13/16) |
-| Events completed | 18 |
-| Prediction period | Dec 2025 — May 2026 |
+| Combined accuracy (model + overrides) | **69.9%** (179/256) |
+| Model-only accuracy | 65.6% (168/256) |
+| Founder override record | 78.9% (15/19) |
+| Events completed | 21 |
+| Prediction period | Dec 2025 — June 2026 |
 | Model | XGBoost V2.4, 154 features |
 
 The override system applies scenario-based reasoning to select fights where the model's statistical view misses contextual factors — proving that combining ML with domain expertise outperforms either approach alone.
@@ -65,7 +65,7 @@ graph TB
 
 ## Database Schema
 
-Normalized PostgreSQL schema (3NF) — chosen over star schema because the system is operational, not warehouse-analytical. At ~250 rows, JOINs execute in <1ms.
+Normalized PostgreSQL schema (3NF) — chosen over star schema because the system is operational, not warehouse-analytical. At ~280 rows, JOINs execute in <1ms.
 
 ```mermaid
 erDiagram
@@ -152,7 +152,7 @@ erDiagram
 | 3NF over star schema | Normalized tables | Operational write patterns, tiny data, JOINs are instant |
 | Views over stored aggregates | Computed on read | <1ms queries, eliminates sync bugs |
 | Analytical layer (not migration) | Separate from pipeline | Zero production risk, standard data engineering pattern |
-| ELO history without FK to events | Direct date column | 8,498 rows across 600+ historical events can't reference 20-row events table |
+| ELO history without FK to events | Direct date column | 13,530 rows across 990+ historical events can't reference the 21-row events table |
 
 ---
 
@@ -160,9 +160,9 @@ erDiagram
 
 | Metric | Value | Meaning |
 |--------|-------|---------|
-| AUC | ~0.68 | Discrimination ability (0.5 = random, 1.0 = perfect) |
-| Brier Score | ~0.22 | Calibration quality (0.0 = perfect, 0.25 = coin flip) |
-| Sample Size | 225 | Decided fights across 18 events |
+| AUC | 0.689 | Discrimination ability (0.5 = random, 1.0 = perfect) |
+| Brier Score | 0.224 | Calibration quality (0.0 = perfect, 0.25 = coin flip) |
+| Sample Size | 256 | Decided fights across 21 events |
 
 The dashboard includes a full [Model Evaluation page](https://cagebot.streamlit.app) with calibration curve, accuracy-by-confidence analysis, and prediction distribution.
 
@@ -219,7 +219,7 @@ See [`pipelines/`](pipelines/) for the sanitized pipeline code.
 | **Overview** | Headline metrics, accuracy trend (per-event + cumulative), best contrarian calls, project story |
 | **Locations** | World map with accuracy by venue city |
 | **Fighters** | Fighter search with full-career ELO trajectory chart |
-| **Fights** | Filterable table of all 225 predictions with donut chart |
+| **Fights** | Filterable table of all predictions with donut chart |
 | **SQL Explorer** | 6 pre-built queries with visible SQL and live results |
 | **Model Evaluation** | Calibration curve, AUC, Brier score, confidence analysis |
 
@@ -260,7 +260,7 @@ cagebot/
 │   ├── load_fights.py               # MOV enrichment + fight name matching
 │   ├── load_odds.py                 # Column-to-row pivot (opening/closing)
 │   ├── load_overrides.py            # Override filter + name resolution
-│   └── load_elo_history.py          # 8,498 career ELO rows
+│   └── load_elo_history.py          # 13,530 career ELO rows
 ├── pipelines/
 │   ├── pre_event.py                 # 10-step pre-event pipeline
 │   └── post_event.py                # 8-step post-event pipeline
