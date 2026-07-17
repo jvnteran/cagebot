@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 
 from components.db import safe_query
+from components.model_evaluation import compute_discrimination_auc
 from components.styles import inject_styles, eyebrow
 
 inject_styles()
@@ -23,13 +24,19 @@ st.markdown(
 )
 
 # --- Load data ---
+# Decided-fight set mirrors the canonical production definition. Winner sentinels
+# and finish methods both need guards because a draw may have a decision method.
 with st.spinner("Loading evaluation data..."):
     df = safe_query("""
-        SELECT model_prob, model_correct
+        SELECT event_date, fighter_a, model_pick, actual_winner,
+               model_prob, model_correct
         FROM v_fight_detail
         WHERE actual_winner IS NOT NULL
-          AND finish_method NOT IN ('NC', 'Cancelled', 'DRAW')
+          AND model_correct IS NOT NULL
           AND model_prob IS NOT NULL
+          AND upper(btrim(actual_winner)) NOT IN ('NC', 'DRAW', 'NO CONTEST', 'CANCELLED')
+          AND upper(btrim(coalesce(finish_method, ''))) NOT IN
+              ('NC', 'CNC', 'CANCELLED', 'NO CONTEST', 'OVERTURNED')
     """)
 
 if df is None:
@@ -39,32 +46,17 @@ df["model_correct_int"] = df["model_correct"].astype(int)
 total_fights = len(df)
 
 # --- Headline ML metrics ---
-# AUC: area under ROC curve
-probs = df["model_prob"].values / 100.0
-actuals = df["model_correct_int"].values
+# AUC (discrimination): orient each live probability to fighter A before
+# comparing it with whether fighter A actually won.
+prob = df["model_prob"].values / 100.0
+auc = compute_discrimination_auc(df)
 
-# Manual AUC computation (avoid sklearn dependency)
-# Sort by predicted probability descending
-order = np.argsort(-probs)
-sorted_actuals = actuals[order]
-n_pos = sorted_actuals.sum()
-n_neg = total_fights - n_pos
-if n_pos > 0 and n_neg > 0:
-    tpr_sum = 0
-    fp_count = 0
-    auc = 0.0
-    for i in range(total_fights):
-        if sorted_actuals[i] == 1:
-            auc += fp_count
-            tpr_sum += 1
-        else:
-            fp_count += 1
-    auc = 1.0 - (auc / (n_pos * n_neg))
-else:
-    auc = 0.5
+# Brier score: mean squared error of pick confidence vs whether the pick hit.
+brier = np.mean((prob - df["model_correct_int"].values) ** 2)
 
-# Brier score: mean squared error of probabilities
-brier = np.mean((probs - actuals) ** 2)
+# Derive the data window from live rows so it advances with completed events.
+_dates = pd.to_datetime(df["event_date"], errors="coerce").dropna()
+date_range = f"{_dates.min():%b %Y} — {_dates.max():%b %Y}" if not _dates.empty else "—"
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -93,7 +85,7 @@ with col3:
         <div style="color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;">Sample Size</div>
         <div style="color:#f5f5f5;font-size:40px;font-weight:700;font-family:Rajdhani;">{total_fights}</div>
         <div style="color:#999;font-size:12px;">decided fights evaluated</div>
-        <div style="color:#555;font-size:10px;">Dec 2025 — May 2026</div></div>""",
+        <div style="color:#555;font-size:10px;">{date_range}</div></div>""",
         unsafe_allow_html=True,
     )
 
@@ -228,7 +220,8 @@ with st.spinner("Loading confusion matrix..."):
         LEFT JOIN odds_snapshots os ON os.fight_id = f.id
             AND os.snapshot_type = 'opening' AND os.bookmaker = 'consensus'
         WHERE f.actual_winner_id IS NOT NULL
-          AND f.finish_method NOT IN ('NC', 'Cancelled', 'DRAW')
+          AND upper(btrim(coalesce(f.finish_method, ''))) NOT IN
+              ('NC', 'CNC', 'CANCELLED', 'NO CONTEST', 'OVERTURNED', 'DRAW')
         GROUP BY 1, 2
     """)
 
@@ -277,9 +270,16 @@ if cm_df is not None and not cm_df.empty:
     st.markdown(cm_html, unsafe_allow_html=True)
 
 with st.expander("// view sql"):
-    st.code("""SELECT model_prob, model_correct
+    st.code("""SELECT event_date, fighter_a, model_pick, actual_winner,
+       model_prob, model_correct
 FROM v_fight_detail
 WHERE actual_winner IS NOT NULL
-  AND finish_method NOT IN ('NC', 'Cancelled', 'DRAW');
+  AND model_correct IS NOT NULL
+  AND model_prob IS NOT NULL
+  AND upper(btrim(actual_winner)) NOT IN ('NC','DRAW','NO CONTEST','CANCELLED')
+  AND upper(btrim(coalesce(finish_method,''))) NOT IN
+      ('NC','CNC','CANCELLED','NO CONTEST','OVERTURNED');
 
--- Calibration and AUC computed in Python from these results.""", language="sql")
+-- AUC (discrimination) = P(fighter_a wins) vs did fighter_a win, computed in
+-- Python (Mann-Whitney), not P(pick) vs pick-correct. Brier and calibration are
+-- also computed from these live rows.""", language="sql")
