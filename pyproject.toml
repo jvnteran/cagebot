@@ -10,8 +10,11 @@ authors = [{name = "Juan Vicente Navas Teran"}]
 dependencies = [
     "pandas>=2.0.0",
     "psycopg2-binary>=2.9.0",
-    "streamlit>=1.45.0",
-    "plotly>=6.0.0",
+    # Keep in step with dashboard/requirements.txt: the 1.56 floor is st.iframe
+    # (components/globe.py) and the upper bound keeps a major release from
+    # landing unreviewed.
+    "streamlit>=1.56,<2",
+    "plotly>=6.0.0,<7",
 ]
 
 [project.optional-dependencies]
