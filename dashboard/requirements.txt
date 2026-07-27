@@ -1,0 +1,10 @@
+# Streamlit Community Cloud installs from this file and redeploys on every push
+# to main, so an unbounded floor lets a runtime upgrade change the live site
+# without warning. Floor is set by the newest API the dashboard uses; the upper
+# bound keeps a major release from landing unreviewed.
+#   >=1.56  st.iframe            (1.56.0, 2026-03-31) — components/globe.py
+#           width="stretch"      (1.51.0 charts, 1.52.0 dataframe)
+streamlit>=1.56,<2
+plotly>=6.0.0,<7
+psycopg2-binary>=2.9.0
+pandas>=2.0.0

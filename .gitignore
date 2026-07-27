@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.ruff_cache/
+.env
+dashboard/.streamlit/secrets.toml
+.superpowers/
+*.egg-info/
+dist/
+build/
+data/
+
+# Private guard wordlist — must never be published
+tests/.private_vocabulary

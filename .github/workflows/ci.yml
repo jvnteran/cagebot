@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          pip install pytest psycopg2-binary pandas python-dotenv
+
+      - name: Public surface guard
+        run: |
+          PYTHONPATH=. pytest tests/unit/test_public_surface.py -v
+
+      - name: Run unit tests
+        # The public-surface guard checks a private wordlist that is not in
+        # this repo. Set the CAGEBOT_GUARD_VOCAB repository secret to enable
+        # it; without it that one check skips and the rest still run.
+        env:
+          CAGEBOT_GUARD_VOCAB: ${{ secrets.CAGEBOT_GUARD_VOCAB }}
+        run: |
+          PYTHONPATH=. pytest tests/unit/ -v
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint
+        run: ruff check .
