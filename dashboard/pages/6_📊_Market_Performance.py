@@ -26,8 +26,7 @@ st.markdown("<h2>Market Performance</h2>", unsafe_allow_html=True)
 st.markdown(
     "<p style='color:#888;font-size:14px;'>"
     "Simulated strategy record &middot; closing-line (CLV) audit &middot; "
-    "live derivative-pricing experiment &middot; failure modes. "
-    "Units only — no money staked.</p>",
+    "failure modes. Units only — no money staked.</p>",
     unsafe_allow_html=True,
 )
 
@@ -61,8 +60,8 @@ window = f"{dates.min():%b %Y} — {dates.max():%b %Y}" if not dates.empty else 
 
 # Single CSS grid so the four cards are always equal in size and distribution.
 _cards = [
-    ("strategy roi", f"{roi:+.1f}%",
-     f"{pl:+.1f}u on {staked:.1f}u staked · simulated · {window}"),
+    ("strategy roi", f"{roi:+.2f}%",
+     f"{pl:+.2f}u on {staked:.2f}u staked · simulated · {window}"),
     ("record", f"{wins}-{losses}",
      f"{len(rec)} settled simulated bets · units only"),
     ("clv → outcome", f"{100 * pos.correct.mean():.1f}%",
@@ -104,7 +103,7 @@ st.markdown(
 rec_curve = rec.copy()
 rec_curve["event_date"] = pd.to_datetime(rec_curve["event_date"], errors="coerce")
 rec_curve = rec_curve.dropna(subset=["event_date"]).sort_values("event_date")
-rec_curve["cum_pl"] = rec_curve["pl_units"].cumsum()
+rec_curve["cum_pl"] = rec_curve["pl_units"].cumsum().round(2)
 
 fig_eq = go.Figure()
 fig_eq.add_trace(go.Scatter(
@@ -143,34 +142,34 @@ st.markdown(
     "Closing Line Value (CLV) is the industry-standard skill test: a bettor "
     "who consistently beats the closing price holds real edge. Below, the "
     "same model picks are priced twice — at the opening line and at the "
-    "close. Closing-odds capture began May 2026, so open-vs-close pairs "
-    "exist for a subset of picks.</p>",
+    "close — on the same paired picks: a pick counts only when both prices "
+    "were captured, so the two cards compare like-for-like on an identical "
+    "fight count. Closing capture is partial for early months.</p>",
     unsafe_allow_html=True,
 )
 
-open_rows = audit.dropna(subset=["opening_odds"]).copy()
-open_rows["pl"] = np.where(open_rows.correct, open_rows.opening_odds - 1.0, -1.0)
-close_rows = audit.dropna(subset=["closing_odds"]).copy()
-close_rows["pl"] = np.where(close_rows.correct, close_rows.closing_odds - 1.0, -1.0)
+paired = audit.dropna(subset=["opening_odds", "closing_odds"]).copy()
+paired["pl_open"] = np.where(paired.correct, paired.opening_odds - 1.0, -1.0)
+paired["pl_close"] = np.where(paired.correct, paired.closing_odds - 1.0, -1.0)
 
 col_a, col_b = st.columns(2)
-for col, rows, label in ((col_a, open_rows, "at opening odds"),
-                         (col_b, close_rows, "at closing odds")):
+for col, series, label in ((col_a, paired["pl_open"], "at opening odds"),
+                           (col_b, paired["pl_close"], "at closing odds")):
     with col:
         stat_card(f"flat 1u per pick — {label}",
-                  f"{rows.pl.sum():+.1f}u",
-                  f"ROI {100 * rows.pl.mean():+.2f}% · n={len(rows)}")
+                  f"{series.sum():+.2f}u",
+                  f"ROI {100 * series.mean():+.2f}% · n={len(paired)} paired picks")
 
 curves = go.Figure()
-for rows, name, color in ((open_rows, "Opening", "#8e8e96"),
-                          (close_rows, "Closing", "#dc2626")):
-    r = rows.copy()
-    r["event_date"] = pd.to_datetime(r["event_date"], errors="coerce")
-    r = r.dropna(subset=["event_date"]).sort_values("event_date")
+_p = paired.copy()
+_p["event_date"] = pd.to_datetime(_p["event_date"], errors="coerce")
+_p = _p.dropna(subset=["event_date"]).sort_values("event_date")
+for colname, name, color in (("pl_open", "Opening", "#8e8e96"),
+                             ("pl_close", "Closing", "#dc2626")):
     curves.add_trace(go.Scatter(
-        x=r["event_date"], y=r["pl"].cumsum(), mode="lines", name=name,
+        x=_p["event_date"], y=_p[colname].cumsum().round(2), mode="lines", name=name,
         line=dict(color=color, width=2),
-        hovertemplate=name + ": %{y:+.1f}u<extra></extra>",
+        hovertemplate=name + ": %{y:+.2f}u<extra></extra>",
     ))
 curves.add_hline(y=0, line_dash="dash", line_color="#555")
 curves.update_layout(
@@ -193,7 +192,7 @@ st.markdown(
 fig_hist = go.Figure()
 fig_hist.add_trace(go.Histogram(
     x=clv["clv_pp"], nbinsx=30, marker=dict(color="#dc2626"),
-    hovertemplate="CLV %{x:.1f}pp: %{y} picks<extra></extra>",
+    hovertemplate="CLV %{x:.2f}pp: %{y} picks<extra></extra>",
 ))
 fig_hist.add_vline(x=float(clv.clv_pp.mean()), line_dash="dash", line_color="#f5f5f5",
                    annotation_text="mean", annotation_font_color="#f5f5f5")
@@ -280,13 +279,13 @@ fig_edge = go.Figure()
 fig_edge.add_trace(go.Bar(
     x=eg["bucket"].astype(str), y=100 * eg["acc"], width=0.6,
     marker=dict(color="#dc2626", cornerradius=4),
-    text=[f"{a:.0f}%<br><span style='font-size:10px'>n={n} · {u:+.1f}u</span>"
+    text=[f"{a:.0f}%<br><span style='font-size:10px'>n={n} · {u:+.2f}u</span>"
           for a, n, u in zip(100 * eg["acc"], eg["n"], eg["units"])],
     textposition="outside",
     textfont=dict(color="#c8c8cf", size=11, family="JetBrains Mono"),
     hovertemplate=("Edge %{x}pp<br>Accuracy %{y:.1f}%<br>"
-                   "Flat units: %{customdata:+.1f}u<extra></extra>"),
-    customdata=eg["units"],
+                   "Flat units: %{customdata:+.2f}u<extra></extra>"),
+    customdata=eg["units"].round(2),
 ))
 fig_edge.add_hline(y=50, line_dash="dash", line_color="#555",
                    annotation_text="Coin flip", annotation_font_color="#555")
@@ -309,103 +308,6 @@ st.markdown(
 with st.expander("// view sql "):
     st.code(SQL_AUDIT + ";", language="sql")
 
-# --- S5: can the model price derivative markets? ---
-st.markdown("<br>", unsafe_allow_html=True)
-section_title("Can the Model Price Derivative Markets?")
-
-SQL_TRIGGERS = """SELECT trigger_label, bt_hit_rate, bt_n, live_graded,
-       live_wins, live_pl_units
-FROM v_markets_ev_public ORDER BY trigger_label"""
-SQL_FUNNEL = """SELECT priced_outcomes, market_groups, events_covered,
-       graded_outcomes, qualified_bets, qualified_graded, qualified_wins,
-       qualified_pl_units, unfiltered_pl_units, qualified_prop_clv_avg,
-       qualified_prop_moved
-FROM v_markets_funnel_public"""
-
-trig = safe_query(SQL_TRIGGERS)
-fun = safe_query(SQL_FUNNEL)
-if trig is not None and fun is not None and not fun.empty:
-    f = fun.iloc[0]
-    st.markdown(
-        f"<p style='color:#888;font-size:13px;'>"
-        f"Every derivative market a betting exchange lists gets priced off the "
-        f"core model's outputs, then filtered through expected-value and "
-        f"pre-registered trigger gates. Across {int(f.events_covered)} events "
-        f"this is a <b style='color:#22c55e'>LIVE EXPERIMENT &middot; "
-        f"n={int(f.qualified_graded)}</b> — most of the funnel is a no-bet."
-        f"</p>",
-        unsafe_allow_html=True,
-    )
-
-    stages = [
-        ("Outcomes priced", int(f.priced_outcomes)),
-        (f"Graded across {int(f.market_groups)} market groups", int(f.graded_outcomes)),
-        ("Qualified by EV + trigger gates", int(f.qualified_bets)),
-    ]
-    fig_fun = go.Figure(go.Funnel(
-        y=[s[0] for s in stages], x=[s[1] for s in stages],
-        marker=dict(color=["#34343c", "#8e8e96", "#dc2626"]),
-        textinfo="value",
-        hovertemplate="%{y}: %{x}<extra></extra>",
-    ))
-    fig_fun.update_layout(
-        plot_bgcolor="#060606", paper_bgcolor="#060606",
-        font=dict(color="#f5f5f5", family="Exo 2"),
-        margin=dict(l=20, r=20, t=10, b=10), height=260,
-    )
-    st.plotly_chart(fig_fun, use_container_width=True)
-
-    hit = 100 * f.qualified_wins / f.qualified_graded if f.qualified_graded else 0
-    st.markdown(
-        f"<p style='color:#c8c8cf;font-size:13px;'>Qualified bets settled: "
-        f"<b>{f.qualified_pl_units:+.2f}u</b> at a {hit:.0f}% hit rate "
-        f"(n={int(f.qualified_graded)}). Betting every listed outcome instead "
-        f"would have returned {f.unfiltered_pl_units:+,.0f}u "
-        f"(n={int(f.graded_outcomes)}, both sides included) — illustrative of "
-        f"exchange margin; the funnel is the strategy.</p>",
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        f"<p style='color:#8e8e96;font-size:12px;'>Market microstructure note: "
-        f"exchange prop lines barely move — only "
-        f"{int(f.qualified_prop_moved)} of {int(f.qualified_graded)} qualified "
-        f"lines moved at all before the fight (mean prop CLV "
-        f"{f.qualified_prop_clv_avg:+.2f}pp). In a static-priced market there "
-        f"is no closing line to beat — expected value at entry is the whole "
-        f"game, which is why the gates carry the strategy.</p>",
-        unsafe_allow_html=True,
-    )
-
-    t = trig.copy()
-    # One record per trigger: pre-registered backtested basis merged with live
-    # qualified rows (unified-record rule).
-    t["total_n"] = t["bt_n"] + t["live_graded"]
-    t["total_hits"] = (t["bt_hit_rate"] * t["bt_n"] + t["live_wins"]).round(0)
-    t["hit_pct"] = (100 * t["total_hits"] / t["total_n"]).round(1)
-    t_display = pd.DataFrame({
-        "Trigger": t["trigger_label"],
-        "Graded record": [f"{int(h)}/{int(n)}" for h, n in zip(t.total_hits, t.total_n)],
-        "Hit %": t["hit_pct"],
-        "Live settled (u)": t["live_pl_units"].round(2),
-    })
-    st.dataframe(
-        t_display, use_container_width=True, hide_index=True,
-        column_config={
-            "Hit %": st.column_config.NumberColumn(format="%.1f"),
-            "Live settled (u)": st.column_config.NumberColumn(format="%.2f"),
-        },
-    )
-    st.markdown(
-        "<p style='color:#666;font-size:12px;'>Trigger inputs are "
-        "point-in-time model outputs and pre-fight prices, graded against "
-        "decided results — no post-hoc information enters any trigger. "
-        "Trigger definitions are withheld.</p>",
-        unsafe_allow_html=True,
-    )
-
-    with st.expander("// view sql  "):
-        st.code(SQL_TRIGGERS + ";\n\n" + SQL_FUNNEL + ";", language="sql")
-
 # --- S6: where it loses ---
 st.markdown("<br>", unsafe_allow_html=True)
 section_title("Where It Loses")
@@ -423,7 +325,7 @@ for title, number, rule in [
      "to zero. Most of the card is a no-bet."),
     ("Extreme-edge picks",
      f"{100 * edge15.correct.mean():.0f}% accuracy, "
-     f"{edge15.pl.sum():+.1f}u (n={len(edge15)})" if len(edge15) else "n=0",
+     f"{edge15.pl.sum():+.2f}u (n={len(edge15)})" if len(edge15) else "n=0",
      "The model's biggest disagreements with the market perform worst — "
      "edge caps conviction, it never scales stakes."),
     ("Forecast quality vs the close",
@@ -458,11 +360,11 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.markdown(
     "<p style='font-family:JetBrains Mono,monospace;color:#5a5a62;"
     "font-size:10px;text-align:center;line-height:1.8;'>"
-    "Strategy parameters and trigger definitions are withheld by design — "
+    "Strategy parameters are withheld by design — "
     "methodology walkthrough available in interview.<br>"
     "Simulated record, units only, no money staked. Decided fights only "
     "(NC / draw / cancelled excluded, same mask as the Model Evaluation "
-    "page). Closing-line coverage begins May 2026. Data refreshes live "
-    "from the analytics database.</p>",
+    "page). Closing-line coverage is partial for early months. Data "
+    "refreshes live from the analytics database.</p>",
     unsafe_allow_html=True,
 )
