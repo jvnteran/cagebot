@@ -25,7 +25,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from components.case_study import load_bundle
+from components.case_study import BundleUnreadable, load_bundle
 from components.styles import configure_page, eyebrow, inject_styles, section_title
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,21 +51,29 @@ st.markdown(
 # server restarted.
 @st.cache_data(show_spinner=False, ttl=60)
 def _load(directory: str):
-    path = Path(directory)
-    if not (path / "index.json").exists():
-        return None
-    return load_bundle(path)
+    """The bundle, or a reason there is none. Never an exception to a visitor.
+
+    Streamlit renders an uncaught exception as a traceback, with the server's
+    absolute path and this file's source in it. A page whose whole pitch is
+    that it reads committed files and cannot fail should not fail that way when
+    one of those files is missing or malformed.
+    """
+    try:
+        return load_bundle(Path(directory)), ""
+    except BundleUnreadable as refusal:
+        return None, str(refusal)
 
 
-bundle = _load(str(BUNDLE))
+bundle, refusal = _load(str(BUNDLE))
 
 if bundle is None or not bundle.sessions:
     st.warning("No case-study bundle on this checkout.")
     st.markdown(
         "The page reads sanitized JSON from `dashboard/case_study/`. "
-        "That directory is empty or missing here, so there is nothing to "
-        "render. No database or credential would help: this page has no other "
-        "source."
+        + (f"That bundle could not be read: {refusal}. " if refusal else
+           "That directory is empty or missing here, so there is nothing to "
+           "render. ")
+        + "No database or credential would help: this page has no other source."
     )
     st.stop()
 
@@ -192,28 +200,53 @@ if orders:
 
 # --------------------------------------------------------- what was measured
 performance = session.sections.get("performance") or []
+#: Figures that need a fill before they mean anything. Most are null in the
+#: data, so partitioning on `value is None` gets them right by accident - and
+#: gets `fill_ratio` WRONG, because it is 0.0 rather than null and would
+#: therefore render as something the session measured. It is 0 of 55 by
+#: construction: nothing was ever sent, so there was nothing to fill. Naming
+#: the figures explicitly is the difference between a table that happens to be
+#: right and one that stays right.
+NEEDED_A_FILL = ("clv", "fees", "gross_pnl", "inventory_pnl", "net_pnl",
+                 "spread_capture", "fill_ratio")
+
 if performance:
-    section_title("What the session could and could not measure")
+    section_title("What the session recorded, and what it could not")
     row = performance[0] if isinstance(performance, list) else performance
-    measured, unmeasured = [], []
+    recorded, unestablished = [], []
     for key, value in sorted(row.items()):
         if key in ("limitations", "config_versions", "sample_sizes"):
             continue
-        (unmeasured if value is None else measured).append((key, value))
+        if key in NEEDED_A_FILL:
+            unestablished.append(
+                (key, "null" if value is None else f"{value} — by construction"))
+        else:
+            recorded.append((key, value))
     left, right = st.columns(2)
     with left:
-        st.markdown("**Measured**")
-        st.dataframe([{"metric": k, "value": v} for k, v in measured],
+        st.markdown("**Recorded — counted by the session**")
+        st.dataframe([{"metric": k, "value": v} for k, v in recorded],
                      hide_index=True, width="stretch")
     with right:
-        st.markdown("**Not measured — needed a fill**")
-        st.dataframe([{"metric": k, "value": "null"} for k, _ in unmeasured],
+        st.markdown("**Not established — each needed a fill**")
+        st.dataframe([{"metric": k, "value": v} for k, v in unestablished],
                      hide_index=True, width="stretch")
+        st.caption(
+            "`fill_ratio` is 0.0 and not null, but it is 0 of "
+            f"{session.n_orders:,} because nothing was ever sent. It is not a "
+            "measurement of how the desk fills."
+        )
 
 # ------------------------------------------------------------- limitations
 if session.limitations:
     section_title("Limitations, as recorded by the session itself")
     for line in session.limitations:
+        # Some entries are internal enum tokens (`no_fills`) rather than
+        # prose, and they restate the sentence above them. Shown verbatim they
+        # read as leaked internals on a page that is otherwise written for a
+        # reader.
+        if line.replace("_", "").isalnum() and line.islower() and " " not in line:
+            continue
         st.markdown(f"- {line}")
 
 if session.note:

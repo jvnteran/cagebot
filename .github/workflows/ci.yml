@@ -19,8 +19,13 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
+        # The dashboard's own requirements, not a hand-kept subset: the tests
+        # import what the pages import, so a page gaining a dependency has to
+        # be a CI failure at install time rather than fourteen unrelated-looking
+        # test failures. streamlit arrived exactly that way.
         run: |
-          pip install pytest psycopg2-binary pandas python-dotenv
+          pip install -r dashboard/requirements.txt
+          pip install pytest python-dotenv
 
       - name: Public surface guard
         run: |

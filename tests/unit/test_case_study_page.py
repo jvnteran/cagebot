@@ -187,3 +187,105 @@ def test_a_page_that_opened_a_database_would_be_caught(cold, tmp_path):
     app.run()
     assert app.exception, "a page that opened a database was not caught"
     assert "opened a database" in " ".join(str(e.value) for e in app.exception)
+
+
+# --- the states a visitor can actually arrive in ------------------------------
+
+def _page_pointed_at(directory, tmp_path):
+    """The real page with its bundle path swapped.
+
+    Better than moving the committed bundle out of the way: that mutates the
+    artifact under test, and `@st.cache_data` would serve the old one anyway,
+    so the test would pass for the wrong reason. The stand-in lives in the real
+    pages directory so its `parents[1]` and its imports still resolve.
+    """
+    source = PAGE.read_text().replace('BUNDLE = ROOT / "case_study"',
+                                      f'BUNDLE = Path({str(directory)!r})')
+    stand_in = PAGE.parent / f"_stand_in_{tmp_path.name[:12]}.py"
+    stand_in.write_text(source)
+    return stand_in
+
+
+def _run_page(path):
+    from streamlit.testing.v1 import AppTest
+
+    for extra in (str(ROOT), str(ROOT / "dashboard")):
+        if extra not in sys.path:
+            sys.path.insert(0, extra)
+    app = AppTest.from_file(str(path), default_timeout=300)
+    app.run()
+    return app
+
+
+def test_an_absent_bundle_renders_an_empty_state_and_not_a_traceback(cold,
+                                                                     tmp_path):
+    empty = tmp_path / "nothing-here"
+    empty.mkdir()
+    stand_in = _page_pointed_at(empty, tmp_path)
+    try:
+        app = _run_page(stand_in)
+    finally:
+        stand_in.unlink()
+
+    assert not app.exception, [str(e.value) for e in app.exception]
+    said = _rendered(app)
+    assert "No case-study bundle" in said
+    assert "no other source" in said
+
+
+@pytest.mark.parametrize("name,build", [
+    ("data file missing", lambda d: None),
+    ("index corrupt", lambda d: (d / "index.json").write_text("{not json")),
+    ("unknown schema", lambda d: (d / "index.json").write_text(
+        '{"schema": 99, "sessions": []}')),
+])
+def test_a_broken_bundle_renders_an_empty_state_and_not_a_traceback(
+        cold, tmp_path, name, build):
+    """What a visitor sees when the data is present but wrong.
+
+    Streamlit renders an uncaught exception as a traceback carrying the
+    server's absolute path and this page's source. On Community Cloud that is
+    the deploy path, printed to anyone who loads the page - on a page whose
+    entire pitch is that it reads committed files and cannot fail.
+    """
+    import json as _json
+
+    broken = tmp_path / "broken"
+    broken.mkdir()
+    (broken / "index.json").write_text(_json.dumps(
+        {"schema": 1, "built_at": "", "sessions": [{"file": "s.json"}]}))
+    build(broken)
+
+    stand_in = _page_pointed_at(broken, tmp_path)
+    try:
+        app = _run_page(stand_in)
+    finally:
+        stand_in.unlink()
+
+    assert not app.exception, \
+        f"{name} raised to the visitor: {[str(e.value) for e in app.exception]}"
+    rendered = _rendered(app)
+    assert "No case-study bundle" in rendered
+    assert str(broken) not in rendered, \
+        "the empty state prints the server's absolute path"
+
+
+def test_fill_ratio_is_never_presented_as_something_the_session_measured(cold):
+    """`fill_ratio` is 0.0 rather than null, so a partition written as
+    `value is None` files it under "measured" - beside the order and incident
+    counts, as though the desk had measured how it fills. It is 0 of 55 by
+    construction because nothing was ever sent. It is the one figure on the
+    page that a reader could quote back as a result.
+    """
+    app = _run()
+    frames = [f.value for f in app.dataframe]
+    rows = [row for frame in frames
+            for row in (frame.to_dict("records")
+                        if hasattr(frame, "to_dict") else frame)]
+    entry = [r for r in rows if r.get("metric") == "fill_ratio"]
+    assert entry, "fill_ratio is not on the page at all"
+    assert "construction" in str(entry[0]["value"]), \
+        f"fill_ratio is shown as a measurement: {entry[0]}"
+
+    headings = " ".join(str(m.value) for m in app.markdown).lower()
+    assert "not established" in headings and "needed a fill" in headings

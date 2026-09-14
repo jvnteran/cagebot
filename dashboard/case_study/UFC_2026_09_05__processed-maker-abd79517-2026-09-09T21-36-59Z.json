@@ -29,7 +29,7 @@
   {
    "count": 360,
    "distinct_details": 24,
-   "example": "polymarket/[redacted:wallet]/Axel Sola",
+   "example": "polymarket/[redacted:hex-id]/Axel Sola",
    "reason": "limit:max_venue_size"
   },
   {
@@ -65,13 +65,13 @@
   {
    "count": 28,
    "distinct_details": 1,
-   "example": "polymarket/[redacted:wallet]/Fabia Sintes",
+   "example": "polymarket/[redacted:hex-id]/Fabia Sintes",
    "reason": "limit:max_fight_size,max_venue_size,max_card_size"
   },
   {
    "count": 14,
    "distinct_details": 1,
-   "example": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "example": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_selection_size,max_fight_size,max_venue_size,max_card_size"
   },
   {
@@ -108,1400 +108,1400 @@
  "incidents": [
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:55:17.472378Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:56:12.751232Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T05:56:12.751232Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:02:09.998716Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:01.596407Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:58.682355Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:09:58.682355Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:15:56.190676Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:22:49.576274Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:23:46.910728Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:23:46.910728Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:29:45.908514Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:30:43.669894Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:30:43.669894Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:36:43.130206Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:37:40.881468Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:37:40.881468Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:43:38.593065Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:44:35.817258Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:44:35.817258Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:50:35.673504Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:51:36.293041Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:51:36.293041Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Mario Pinto",
+   "detail": "polymarket/[redacted:hex-id]/Mario Pinto",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Ryan Spann",
+   "detail": "polymarket/[redacted:hex-id]/Ryan Spann",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T06:57:36.335753Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:50:41.292680Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:51:07.321966Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:51:07.321966Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:51:07.321966Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:51:07.321966Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:51:07.321966Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:51:07.321966Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Far\u00e9s Ziam",
+   "detail": "polymarket/[redacted:hex-id]/Far\u00e9s Ziam",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T13:57:12.458116Z",
-   "detail": "polymarket/[redacted:wallet]/Axel Sola",
+   "detail": "polymarket/[redacted:hex-id]/Axel Sola",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Axel Sola",
+   "detail": "polymarket/[redacted:hex-id]/Axel Sola",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:03:47.132525Z",
-   "detail": "polymarket/[redacted:wallet]/Far\u00e9s Ziam",
+   "detail": "polymarket/[redacted:hex-id]/Far\u00e9s Ziam",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:10:13.381047Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:10:13.381047Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Axel Sola",
+   "detail": "polymarket/[redacted:hex-id]/Axel Sola",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:16:34.774938Z",
-   "detail": "polymarket/[redacted:wallet]/Far\u00e9s Ziam",
+   "detail": "polymarket/[redacted:hex-id]/Far\u00e9s Ziam",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Delphine Benouaich",
+   "detail": "polymarket/[redacted:hex-id]/Delphine Benouaich",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Sofia Montenegro",
+   "detail": "polymarket/[redacted:hex-id]/Sofia Montenegro",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Felipe Lima",
+   "detail": "polymarket/[redacted:hex-id]/Felipe Lima",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Kurtis Campbell",
+   "detail": "polymarket/[redacted:hex-id]/Kurtis Campbell",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Trevor Peek",
+   "detail": "polymarket/[redacted:hex-id]/Trevor Peek",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Luis Felipe Dias",
+   "detail": "polymarket/[redacted:hex-id]/Luis Felipe Dias",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Matthieu Letho Duclos",
+   "detail": "polymarket/[redacted:hex-id]/Matthieu Letho Duclos",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:23:09.511005Z",
-   "detail": "polymarket/[redacted:wallet]/Losene Keita",
+   "detail": "polymarket/[redacted:hex-id]/Losene Keita",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:29:36.121990Z",
-   "detail": "polymarket/[redacted:wallet]/Nursulton Ruziboev",
+   "detail": "polymarket/[redacted:hex-id]/Nursulton Ruziboev",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:29:36.121990Z",
-   "detail": "polymarket/[redacted:wallet]/Michael Page",
+   "detail": "polymarket/[redacted:hex-id]/Michael Page",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:29:36.121990Z",
-   "detail": "polymarket/[redacted:wallet]/Salahdine Parnasse",
+   "detail": "polymarket/[redacted:hex-id]/Salahdine Parnasse",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:29:36.121990Z",
-   "detail": "polymarket/[redacted:wallet]/Modestas Bukauskas",
+   "detail": "polymarket/[redacted:hex-id]/Modestas Bukauskas",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:29:36.121990Z",
-   "detail": "polymarket/[redacted:wallet]/Oumar Sy",
+   "detail": "polymarket/[redacted:hex-id]/Oumar Sy",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
   },
   {
    "at": "2026-08-29T14:29:36.121990Z",
-   "detail": "polymarket/[redacted:wallet]/Far\u00e9s Ziam",
+   "detail": "polymarket/[redacted:hex-id]/Far\u00e9s Ziam",
    "reason": "limit:max_venue_size",
    "resolved_at": null,
    "severity": "warning"
@@ -3110,8 +3110,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-107",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-107",
    "price": 0.64,
    "queue_ahead": 0.0,
    "side": "buy",
@@ -3127,8 +3127,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-11",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-11",
    "price": 0.66,
    "queue_ahead": 0.0,
    "side": "buy",
@@ -3144,8 +3144,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-111",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-111",
    "price": 0.66,
    "queue_ahead": 2350.0,
    "side": "buy",
@@ -3161,8 +3161,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-133",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-133",
    "price": 0.66,
    "queue_ahead": 17332.27,
    "side": "buy",
@@ -3178,8 +3178,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-146",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-146",
    "price": 0.64,
    "queue_ahead": 258.68,
    "side": "buy",
@@ -3195,8 +3195,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-159",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-159",
    "price": 0.66,
    "queue_ahead": 32128.5,
    "side": "buy",
@@ -3212,8 +3212,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-21",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-21",
    "price": 0.66,
    "queue_ahead": 6598.46,
    "side": "buy",
@@ -3229,8 +3229,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-3",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-3",
    "price": 0.65,
    "queue_ahead": 2050.0,
    "side": "buy",
@@ -3246,8 +3246,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-40",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-40",
    "price": 0.64,
    "queue_ahead": 2146.83,
    "side": "buy",
@@ -3263,8 +3263,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-42",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-42",
    "price": 0.66,
    "queue_ahead": 2050.0,
    "side": "buy",
@@ -3280,8 +3280,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-51",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-51",
    "price": 0.64,
    "queue_ahead": 67.82,
    "side": "buy",
@@ -3297,8 +3297,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-54",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-54",
    "price": 0.66,
    "queue_ahead": 2050.0,
    "side": "buy",
@@ -3314,8 +3314,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-55",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-55",
    "price": 0.64,
    "queue_ahead": 62.82,
    "side": "buy",
@@ -3331,8 +3331,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-58",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-58",
    "price": 0.66,
    "queue_ahead": 2135.91,
    "side": "buy",
@@ -3348,8 +3348,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-63",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-63",
    "price": 0.64,
    "queue_ahead": 5479.0,
    "side": "buy",
@@ -3365,8 +3365,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-buy-76",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-buy-76",
    "price": 0.66,
    "queue_ahead": 10508.0,
    "side": "buy",
@@ -3382,8 +3382,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-100",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-100",
    "price": 0.72,
    "queue_ahead": 39377.73,
    "side": "sell",
@@ -3399,8 +3399,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-108",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-108",
    "price": 0.74,
    "queue_ahead": 110.0,
    "side": "sell",
@@ -3416,8 +3416,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-119",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-119",
    "price": 0.72,
    "queue_ahead": 37844.44,
    "side": "sell",
@@ -3433,8 +3433,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-12",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-12",
    "price": 0.72,
    "queue_ahead": 11437.69,
    "side": "sell",
@@ -3450,8 +3450,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-134",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-134",
    "price": 0.72,
    "queue_ahead": 19453.87,
    "side": "sell",
@@ -3467,8 +3467,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-145",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-145",
    "price": 0.7,
    "queue_ahead": 18000.38,
    "side": "sell",
@@ -3484,8 +3484,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-22",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-22",
    "price": 0.72,
    "queue_ahead": 13301.69,
    "side": "sell",
@@ -3501,8 +3501,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-4",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-4",
    "price": 0.71,
    "queue_ahead": 3132.0,
    "side": "sell",
@@ -3518,8 +3518,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Daniil Donchenko-sell-83",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Daniil Donchenko-sell-83",
    "price": 0.74,
    "queue_ahead": 110.0,
    "side": "sell",
@@ -3535,8 +3535,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-buy-1",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-buy-1",
    "price": 0.29,
    "queue_ahead": 3132.0,
    "side": "buy",
@@ -3552,8 +3552,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-buy-131",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-buy-131",
    "price": 0.28,
    "queue_ahead": 19453.87,
    "side": "buy",
@@ -3569,8 +3569,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-buy-160",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-buy-160",
    "price": 0.3,
    "queue_ahead": 18250.35,
    "side": "buy",
@@ -3586,8 +3586,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-buy-23",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-buy-23",
    "price": 0.28,
    "queue_ahead": 13301.69,
    "side": "buy",
@@ -3603,8 +3603,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-buy-9",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-buy-9",
    "price": 0.28,
    "queue_ahead": 11437.69,
    "side": "buy",
@@ -3620,8 +3620,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-sell-10",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-sell-10",
    "price": 0.34,
    "queue_ahead": 0.0,
    "side": "sell",
@@ -3637,8 +3637,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-sell-132",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-sell-132",
    "price": 0.34,
    "queue_ahead": 17332.27,
    "side": "sell",
@@ -3654,8 +3654,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-sell-147",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-sell-147",
    "price": 0.36,
    "queue_ahead": 258.68,
    "side": "sell",
@@ -3671,8 +3671,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-sell-161",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-sell-161",
    "price": 0.34,
    "queue_ahead": 32128.5,
    "side": "sell",
@@ -3688,8 +3688,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-sell-2",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-sell-2",
    "price": 0.35,
    "queue_ahead": 2050.0,
    "side": "sell",
@@ -3705,8 +3705,8 @@
    "fight_id": "UFC_2026_09_05|daniil donchenko|punahele soriano",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Punahele Soriano-sell-24",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Punahele Soriano-sell-24",
    "price": 0.34,
    "queue_ahead": 6598.46,
    "side": "sell",
@@ -3722,8 +3722,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-buy-135",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-buy-135",
    "price": 0.4,
    "queue_ahead": 21345.5,
    "side": "buy",
@@ -3739,8 +3739,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-buy-141",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-buy-141",
    "price": 0.4,
    "queue_ahead": 7215.5,
    "side": "buy",
@@ -3756,8 +3756,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-buy-156",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-buy-156",
    "price": 0.42,
    "queue_ahead": 59745.19,
    "side": "buy",
@@ -3773,8 +3773,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-buy-47",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-buy-47",
    "price": 0.39,
    "queue_ahead": 944.23,
    "side": "buy",
@@ -3790,8 +3790,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-buy-77",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-buy-77",
    "price": 0.37,
    "queue_ahead": 441.0,
    "side": "buy",
@@ -3807,8 +3807,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-buy-82",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-buy-82",
    "price": 0.39,
    "queue_ahead": 3044.23,
    "side": "buy",
@@ -3824,8 +3824,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-sell-136",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-sell-136",
    "price": 0.46,
    "queue_ahead": 19786.0,
    "side": "sell",
@@ -3841,8 +3841,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-sell-142",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-sell-142",
    "price": 0.47,
    "queue_ahead": 6544.92,
    "side": "sell",
@@ -3858,8 +3858,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-sell-48",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-sell-48",
    "price": 0.47,
    "queue_ahead": 2050.0,
    "side": "sell",
@@ -3875,8 +3875,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-sell-49",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-sell-49",
    "price": 0.45,
    "queue_ahead": 2060.0,
    "side": "sell",
@@ -3892,8 +3892,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-sell-84",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-sell-84",
    "price": 0.43,
    "queue_ahead": 2105.0,
    "side": "sell",
@@ -3909,8 +3909,8 @@
    "fight_id": "UFC_2026_09_05|benouaich delphine|montenegro sofia",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Sofia Montenegro-sell-85",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Sofia Montenegro-sell-85",
    "price": 0.45,
    "queue_ahead": 3050.0,
    "side": "sell",
@@ -3926,8 +3926,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-buy-13",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-buy-13",
    "price": 0.57,
    "queue_ahead": 2060.0,
    "side": "buy",
@@ -3943,8 +3943,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-buy-19",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-buy-19",
    "price": 0.55,
    "queue_ahead": 3075.0,
    "side": "buy",
@@ -3960,8 +3960,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-buy-25",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-buy-25",
    "price": 0.53,
    "queue_ahead": 2143.0,
    "side": "buy",
@@ -3977,8 +3977,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-buy-31",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-buy-31",
    "price": 0.55,
    "queue_ahead": 3075.0,
    "side": "buy",
@@ -3994,8 +3994,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-sell-14",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-sell-14",
    "price": 0.63,
    "queue_ahead": 9550.0,
    "side": "sell",
@@ -4011,8 +4011,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-sell-20",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-sell-20",
    "price": 0.61,
    "queue_ahead": 9679.0,
    "side": "sell",
@@ -4028,8 +4028,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-sell-26",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-sell-26",
    "price": 0.63,
    "queue_ahead": 1088.0,
    "side": "sell",
@@ -4045,8 +4045,8 @@
    "fight_id": "UFC_2026_09_05|aljarouj michael|fabia sintes",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Michael Aljarouj-sell-32",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Michael Aljarouj-sell-32",
    "price": 0.6,
    "queue_ahead": 5608.52,
    "side": "sell",
@@ -4062,8 +4062,8 @@
    "fight_id": "UFC_2026_09_05|charriere morgan|felipe lima",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Morgan Charri\u00e8re-buy-5",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Morgan Charri\u00e8re-buy-5",
    "price": 0.33,
    "queue_ahead": 0.0,
    "side": "buy",
@@ -4079,8 +4079,8 @@
    "fight_id": "UFC_2026_09_05|charriere morgan|felipe lima",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Morgan Charri\u00e8re-buy-7",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Morgan Charri\u00e8re-buy-7",
    "price": 0.31,
    "queue_ahead": 5.0,
    "side": "buy",
@@ -4096,8 +4096,8 @@
    "fight_id": "UFC_2026_09_05|charriere morgan|felipe lima",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Morgan Charri\u00e8re-sell-6",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Morgan Charri\u00e8re-sell-6",
    "price": 0.42,
    "queue_ahead": 3865.0,
    "side": "sell",
@@ -4113,8 +4113,8 @@
    "fight_id": "UFC_2026_09_05|charriere morgan|felipe lima",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Morgan Charri\u00e8re-sell-8",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Morgan Charri\u00e8re-sell-8",
    "price": 0.38,
    "queue_ahead": 0.0,
    "side": "sell",
@@ -4130,8 +4130,8 @@
    "fight_id": "UFC_2026_09_05|cornolle nora|klaudia sygula",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nora Cornolle-buy-113",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nora Cornolle-buy-113",
    "price": 0.46,
    "queue_ahead": 1257.58,
    "side": "buy",
@@ -4147,8 +4147,8 @@
    "fight_id": "UFC_2026_09_05|cornolle nora|klaudia sygula",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nora Cornolle-buy-120",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nora Cornolle-buy-120",
    "price": 0.48,
    "queue_ahead": 11409.49,
    "side": "buy",
@@ -4164,8 +4164,8 @@
    "fight_id": "UFC_2026_09_05|cornolle nora|klaudia sygula",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nora Cornolle-sell-114",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nora Cornolle-sell-114",
    "price": 0.56,
    "queue_ahead": 88.0,
    "side": "sell",
@@ -4181,8 +4181,8 @@
    "fight_id": "UFC_2026_09_05|cornolle nora|klaudia sygula",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nora Cornolle-sell-117",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nora Cornolle-sell-117",
    "price": 0.54,
    "queue_ahead": 9576.05,
    "side": "sell",
@@ -4198,8 +4198,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-buy-121",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-buy-121",
    "price": 0.71,
    "queue_ahead": 999.18,
    "side": "buy",
@@ -4215,8 +4215,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-buy-129",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-buy-129",
    "price": 0.69,
    "queue_ahead": 380.0,
    "side": "buy",
@@ -4232,8 +4232,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-buy-98",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-buy-98",
    "price": 0.69,
    "queue_ahead": 49.0,
    "side": "buy",
@@ -4249,8 +4249,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-sell-101",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-sell-101",
    "price": 0.79,
    "queue_ahead": 2641.0,
    "side": "sell",
@@ -4266,8 +4266,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-sell-102",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-sell-102",
    "price": 0.76,
    "queue_ahead": 1000.0,
    "side": "sell",
@@ -4283,8 +4283,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-sell-112",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-sell-112",
    "price": 0.78,
    "queue_ahead": 3782.0,
    "side": "sell",
@@ -4300,8 +4300,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-sell-118",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-sell-118",
    "price": 0.76,
    "queue_ahead": 1009.41,
    "side": "sell",
@@ -4317,8 +4317,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-sell-130",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-sell-130",
    "price": 0.74,
    "queue_ahead": 3669.0,
    "side": "sell",
@@ -4334,8 +4334,8 @@
    "fight_id": "UFC_2026_09_05|andrusca pavel|nathaniel wood",
    "filled_size": 0.0,
    "latency_version": "latency-v1-realistic",
-   "market_key": "[redacted:wallet]",
-   "order_id": "polymarket-[redacted:wallet]-Nathaniel Wood-sell-99",
+   "market_key": "[redacted:hex-id]",
+   "order_id": "polymarket-[redacted:hex-id]-Nathaniel Wood-sell-99",
    "price": 0.77,
    "queue_ahead": 1137.0,
    "side": "sell",

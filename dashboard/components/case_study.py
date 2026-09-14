@@ -6,16 +6,22 @@ standard library, because the page it feeds has to render from a fresh clone
 with no credentials of any kind. Anything cleverer than `json.load` would be a
 way for that to stop being true.
 
-Two rules about what it will read, and both are refusals rather than fixes:
+Three rules about what it will read, and all three are refusals rather than
+fixes:
 
-  * A bundle entry names a file by PLAIN FILENAME. Not a path, not a parent
-    reference, not an absolute path. The index is data, and data that can name
-    `../../.env` is a file-read primitive pointed at whoever is hosting the
-    page.
-  * A section the page does not know how to render is DROPPED, not passed
-    through. A bundle built by a newer exporter may carry sections this page
-    has never seen; rendering them blind is how something private reaches a
-    public surface without anybody deciding that it should.
+  * A bundle entry names a file by PLAIN FILENAME, checked twice - once on the
+    name and once on where it actually resolves to. The index is data, and data
+    that can name `../../.env` is a file-read primitive pointed at whoever is
+    hosting the page.
+  * A section the page does not know how to render is DROPPED. A bundle built
+    by a newer exporter may carry sections this page has never seen; rendering
+    them blind is how something private reaches a public surface without
+    anybody deciding that it should.
+  * A bundle this reader does not understand, or cannot read, raises
+    `BundleUnreadable` rather than whatever the filesystem or the JSON parser
+    happened to raise. The page turns that into an empty state. An uncaught
+    `FileNotFoundError` on a public page prints the server's absolute path and
+    the page source into the browser.
 """
 from __future__ import annotations
 
@@ -23,15 +29,26 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
-#: Bumped when the shape changes in a way this reader cannot absorb.
+#: Bumped when the shape changes in a way this reader cannot absorb. Enforced
+#: in `load_bundle`: a constant nothing compares against is a comment.
 BUNDLE_SCHEMA = 1
 
-#: The only sections this page renders. Everything else in a bundle file is
-#: ignored — see the module docstring for why that is a refusal and not a bug.
+#: Sections this reader will carry. Narrower than what the page draws - the
+#: page renders `incident_summary`, `incidents`, `orders` and `performance`,
+#: and the rest are carried for a caller that wants them. The point of the set
+#: is that anything NOT named here never reaches a caller at all.
 READABLE_SECTIONS = frozenset({
     "session", "orders", "fills", "incidents", "incident_summary",
     "mappings", "performance",
 })
+
+
+class BundleUnreadable(ValueError):
+    """This bundle will not be rendered, and here is the reason.
+
+    A `ValueError` subclass on purpose: a caller that only wants "bad input"
+    keeps working, and the page can still catch precisely this.
+    """
 
 
 @dataclass(frozen=True)
@@ -61,58 +78,105 @@ class Bundle:
     sessions: tuple
 
 
-def _within(directory: Path, name: str) -> Path:
-    """`directory / name`, or a refusal.
+def _within(directory, name) -> Path:
+    """`directory / name`, or a refusal. Two independent checks.
 
-    `Path.resolve()` comparison is the usual approach and it is the weaker one:
-    it answers "did this escape", which means the traversal has already been
-    constructed and is being audited. This answers "is this a filename", which
-    a traversal cannot be.
+    The NAME check asks "is this a filename", which a traversal cannot be. It
+    is the stronger question, but it is blind to one thing: a plain filename
+    that is a SYMLINK out of the directory passes it and reads the target. So
+    the resolved location is checked as well. Either alone leaves a hole -
+    `Path("..").name` is `".."`, which the name check would otherwise accept.
     """
-    candidate = Path(str(name))
-    if candidate.name != str(name) or candidate.is_absolute() or not name:
-        raise ValueError(f"bundle entry is not a plain filename: {name!r}")
-    return Path(directory) / candidate.name
+    if not isinstance(name, str) or not name:
+        raise BundleUnreadable(f"bundle entry is not a filename: {name!r}")
+    candidate = Path(name)
+    if candidate.name != name or candidate.is_absolute() or name in (".", ".."):
+        raise BundleUnreadable(f"bundle entry is not a plain filename: {name!r}")
+
+    directory = Path(directory)
+    target = directory / candidate.name
+    try:
+        root, resolved = directory.resolve(), target.resolve()
+    except OSError as exc:                      # a broken or looping symlink
+        raise BundleUnreadable(f"bundle entry cannot be resolved: {name!r}") from exc
+    if resolved.parent != root:
+        raise BundleUnreadable(
+            f"bundle entry resolves outside the bundle: {name!r}")
+    return target
 
 
 def _readable(payload: dict) -> dict:
-    """Only the sections this page knows how to render."""
+    """Only the sections this reader was taught about."""
     return {key: value for key, value in payload.items()
             if key in READABLE_SECTIONS}
+
+
+def _load_json(path: Path) -> dict:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        # The filename, never the path: the page renders this and the page is
+        # public. `/mount/src/...` is not a secret, but it is not a visitor's
+        # business either.
+        raise BundleUnreadable(f"{path.name} could not be read") from exc
+    if not isinstance(payload, dict):
+        raise BundleUnreadable(f"{path.name} is not an object")
+    return payload
 
 
 def load_bundle(directory) -> Bundle | None:
     """The bundle at `directory`, or None when there is nothing to show.
 
-    Returns rather than raises on an absent bundle: a checkout without one is a
-    normal state, and a stack trace is a poor way to say so.
+    None means "no bundle here", which is a normal state for a checkout that
+    has not got one. `BundleUnreadable` means "there is one and it is wrong",
+    which is not the same thing and must not be silently equated with it.
     """
     directory = Path(directory)
     index_path = directory / "index.json"
     if not index_path.exists():
         return None
 
-    index = json.loads(index_path.read_text())
+    index = _load_json(index_path)
+    schema = index.get("schema")
+    if schema != BUNDLE_SCHEMA:
+        raise BundleUnreadable(
+            f"bundle schema {schema!r}; this page reads {BUNDLE_SCHEMA}")
+
+    entries = index.get("sessions")
+    if not isinstance(entries, list):
+        raise BundleUnreadable("bundle index carries no session list")
+
     sessions = []
-    for entry in index.get("sessions", []):
-        payload = json.loads(_within(directory, entry["file"]).read_text())
-        counts = payload.get("counts") or {}
+    for entry in entries:
+        if not isinstance(entry, dict) or "file" not in entry:
+            raise BundleUnreadable("bundle index entry names no file")
+        payload = _load_json(_within(directory, entry["file"]))
+        counts = payload.get("counts")
+        counts = counts if isinstance(counts, dict) else {}
+        try:
+            orders = int(counts.get("orders", 0))
+            fills = int(counts.get("fills", 0))
+            incidents = int(counts.get("incidents", 0))
+        except (TypeError, ValueError) as exc:
+            raise BundleUnreadable("bundle counts are not numbers") from exc
         sessions.append(Session(
-            session_id=payload.get("session_id", entry.get("session_id", "")),
-            event_stem=payload.get("event_stem", entry.get("event_stem", "")),
-            started_at=payload.get("started_at", ""),
-            ended_at=payload.get("ended_at", ""),
-            # The counts are the bundle's own totals and are never recomputed
-            # from the rows that shipped, because the incident rows are a
-            # sample and a recomputed total would silently be the sample size.
-            n_orders=int(counts.get("orders", 0)),
-            n_fills=int(counts.get("fills", 0)),
-            n_incidents=int(counts.get("incidents", 0)),
-            note=payload.get("note", ""),
+            session_id=str(payload.get("session_id",
+                                       entry.get("session_id", ""))),
+            event_stem=str(payload.get("event_stem",
+                                       entry.get("event_stem", ""))),
+            started_at=str(payload.get("started_at", "")),
+            ended_at=str(payload.get("ended_at", "")),
+            # The bundle's own totals, never recomputed from the rows that
+            # shipped: the incident rows are a sample, so a recomputed total
+            # would silently be the sample size wearing the total's label.
+            n_orders=orders,
+            n_fills=fills,
+            n_incidents=incidents,
+            note=str(payload.get("note", "")),
             limitations=tuple(payload.get("limitations", ())),
             sections=_readable(payload),
             incidents_are_a_sample=bool(payload.get("incidents_are_a_sample")),
         ))
-    return Bundle(built_at=index.get("built_at", ""),
-                  schema=int(index.get("schema", 0)),
+    return Bundle(built_at=str(index.get("built_at", "")),
+                  schema=BUNDLE_SCHEMA,
                   sessions=tuple(sessions))
