@@ -1,0 +1,26 @@
+{
+ "built_at": "2026-09-14T15:07:35Z",
+ "schema": 1,
+ "sessions": [
+  {
+   "counts": {
+    "fills": 0,
+    "incidents": 6233,
+    "orders": 55
+   },
+   "event_stem": "UFC_2026_08_29",
+   "file": "UFC_2026_08_29__processed-maker-abd79517-2026-09-09T21-32-10Z.json",
+   "session_id": "processed-maker-abd79517-2026-09-09T21:32:10Z"
+  },
+  {
+   "counts": {
+    "fills": 0,
+    "incidents": 13160,
+    "orders": 166
+   },
+   "event_stem": "UFC_2026_09_05",
+   "file": "UFC_2026_09_05__processed-maker-abd79517-2026-09-09T21-36-59Z.json",
+   "session_id": "processed-maker-abd79517-2026-09-09T21:36:59Z"
+  }
+ ]
+}

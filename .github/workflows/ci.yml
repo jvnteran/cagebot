@@ -19,17 +19,26 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
+        # The dashboard's own requirements, not a hand-kept subset: the tests
+        # import what the pages import, so a page gaining a dependency has to
+        # be a CI failure at install time rather than fourteen unrelated-looking
+        # test failures. streamlit arrived exactly that way.
         run: |
-          pip install pytest psycopg2-binary pandas python-dotenv
+          pip install -r dashboard/requirements.txt
+          pip install pytest python-dotenv
 
+      # The vocabulary check reads a wordlist that is deliberately not in this
+      # repository, from CAGEBOT_GUARD_VOCAB. Without it that one check SKIPS -
+      # and a skip is not a pass. It has to reach BOTH steps: this one runs the
+      # guard on its own, so leaving it off here ran the dedicated publication
+      # job with its most specific rule switched off.
       - name: Public surface guard
+        env:
+          CAGEBOT_GUARD_VOCAB: ${{ secrets.CAGEBOT_GUARD_VOCAB }}
         run: |
           PYTHONPATH=. pytest tests/unit/test_public_surface.py -v
 
       - name: Run unit tests
-        # The public-surface guard checks a private wordlist that is not in
-        # this repo. Set the CAGEBOT_GUARD_VOCAB repository secret to enable
-        # it; without it that one check skips and the rest still run.
         env:
           CAGEBOT_GUARD_VOCAB: ${{ secrets.CAGEBOT_GUARD_VOCAB }}
         run: |
@@ -47,7 +56,15 @@ jobs:
           python-version: "3.13"
 
       - name: Install ruff
-        run: pip install ruff
+        # Pinned, for the same reason dashboard/requirements.txt pins
+        # streamlit: an unbounded floor lets an upgrade change this repository
+        # without a commit. `[tool.ruff]` sets only target-version and
+        # line-length, so the rule set IS whatever that release calls default -
+        # and when those defaults move, every file fails a standard nobody
+        # chose. 0.16.7 reports 105 findings against main @ d00cdeb, which has
+        # not changed. Raise this deliberately, with the fixes in the same
+        # commit.
+        run: pip install ruff==0.15.10
 
       - name: Lint
         run: ruff check .
