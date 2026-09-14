@@ -52,7 +52,15 @@ jobs:
           python-version: "3.13"
 
       - name: Install ruff
-        run: pip install ruff
+        # Pinned, for the same reason dashboard/requirements.txt pins
+        # streamlit: an unbounded floor lets an upgrade change this repository
+        # without a commit. `[tool.ruff]` sets only target-version and
+        # line-length, so the rule set IS whatever that release calls default -
+        # and when those defaults move, every file fails a standard nobody
+        # chose. 0.16.7 reports 105 findings against main @ d00cdeb, which has
+        # not changed. Raise this deliberately, with the fixes in the same
+        # commit.
+        run: pip install ruff==0.15.10
 
       - name: Lint
         run: ruff check .
