@@ -27,14 +27,18 @@ jobs:
           pip install -r dashboard/requirements.txt
           pip install pytest python-dotenv
 
+      # The vocabulary check reads a wordlist that is deliberately not in this
+      # repository, from CAGEBOT_GUARD_VOCAB. Without it that one check SKIPS -
+      # and a skip is not a pass. It has to reach BOTH steps: this one runs the
+      # guard on its own, so leaving it off here ran the dedicated publication
+      # job with its most specific rule switched off.
       - name: Public surface guard
+        env:
+          CAGEBOT_GUARD_VOCAB: ${{ secrets.CAGEBOT_GUARD_VOCAB }}
         run: |
           PYTHONPATH=. pytest tests/unit/test_public_surface.py -v
 
       - name: Run unit tests
-        # The public-surface guard checks a private wordlist that is not in
-        # this repo. Set the CAGEBOT_GUARD_VOCAB repository secret to enable
-        # it; without it that one check skips and the rest still run.
         env:
           CAGEBOT_GUARD_VOCAB: ${{ secrets.CAGEBOT_GUARD_VOCAB }}
         run: |

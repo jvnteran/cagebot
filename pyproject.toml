@@ -20,12 +20,21 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0.0",
-    "ruff>=0.1.0",
+    # Pinned exactly, not floored. `[tool.ruff]` below configures only
+    # target-version and line-length, so the rule set IS whatever the installed
+    # release calls default - and when those defaults move, files that have not
+    # changed start failing a standard nobody chose.
+    "ruff==0.15.10",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
+# Belt to the dependency pin's braces: this refuses to run at all under a
+# different version, rather than silently linting against different defaults.
+# It applies wherever ruff reads this file - CI, pre-commit, and a contributor's
+# shell - which is the point.
+required-version = "==0.15.10"
 target-version = "py310"
 line-length = 120

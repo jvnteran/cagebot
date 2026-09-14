@@ -8,7 +8,10 @@ repos:
       - id: check-added-large-files
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    # Must equal required-version in pyproject.toml. The hook reads that file,
+    # so a mismatch here does not merely lint differently - ruff refuses to
+    # start.
+    rev: v0.15.10
     hooks:
       - id: ruff
         args: [--fix]
