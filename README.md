@@ -49,14 +49,6 @@ contribution is real but modest — and the sample is far too small to call it v
 The dashboard's Model Evaluation page carries the calibration curve, accuracy-by-confidence
 breakdown and confusion matrix behind these numbers.
 
-### The part most projects leave out
-
-The dashboard also reports where the model **loses**. Its picks are priced twice — at the
-opening line and at the closing line — and the honest result is that the closing line is the
-better forecaster on the same fights. Large model-versus-market disagreements perform worst,
-not best. That comparison is on the Market Performance page, and it is there because a
-prediction system that only publishes its wins is not measurable.
-
 ---
 
 ## Architecture
@@ -182,7 +174,6 @@ erDiagram
 | **Fights** | Filterable table of every prediction and outcome |
 | **SQL Explorer** | Pre-built queries with their SQL and live results |
 | **Model Evaluation** | Calibration curve, AUC, Brier score, confidence analysis |
-| **Market Performance** | Model priced against the opening and closing line |
 
 ---
 

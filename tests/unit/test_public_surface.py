@@ -169,30 +169,6 @@ def test_dashboard_reads_only_allowed_relations():
     assert not illegal, f"dashboard queries unreviewed relations: {illegal}"
 
 
-def test_market_page_summarises_the_record_but_never_itemises_it():
-    """Opening/closing prices are fine on the market-audit query — that is
-    model output priced against a public line. They are not fine on the
-    strategy record, where a per-row price beside a result reveals the rule.
-    """
-    page = next((ROOT / "dashboard" / "pages").glob("*Market_Performance.py"), None)
-    assert page is not None, "Market Performance page not found"
-    text = _read(page)
-
-    record_sql = re.search(r'SQL_RECORD\s*=\s*"""(.*?)"""', text, flags=re.S)
-    assert record_sql, "SQL_RECORD query not found"
-    hits = [c for c in STAKING_COLUMNS if c in record_sql.group(1)]
-    assert not hits, f"strategy record itemised by: {hits}"
-
-    all_sql = "\n".join(re.findall(r'"""(.*?)"""', text, flags=re.S))
-    assert not re.search(r"\bFROM\s+v_betting_public\b", all_sql), \
-        "page reads the per-bet blotter view"
-
-    # The trigger table is a permitted aggregate; a table over `rec` is not.
-    assert not re.search(r"st\.dataframe\(\s*rec", text), \
-        "the strategy record renders as a table"
-    assert "rec_display" not in text, "per-bet log frame reintroduced"
-
-
 def test_no_engine_directories():
     present = [d for d in ENGINE_DIRS if (ROOT / d).exists()]
     assert not present, f"engine-side directories in public repo: {present}"

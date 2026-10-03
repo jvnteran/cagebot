@@ -277,8 +277,7 @@ st.markdown(
     f"<p style='font-size:13px;color:#c8c8cf;line-height:1.85;margin:0;'>"
     f"After {int(m.decided)} decided fights across {int(m.events)} events, the record "
     "supports a modest claim: the model beats a coin flip by a wide margin, and targeted "
-    "human corrections add a little on top. It does not beat the closing line — the "
-    "Market Performance page shows exactly where that comparison goes against it. This "
+    "human corrections add a little on top. It does not beat the closing line. This "
     "dashboard reads a sanitized, read-only view of the results database; the prediction "
     "engine itself is private.</p>"
     "</div>",
